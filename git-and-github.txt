@@ -1,0 +1,30 @@
+** GIT AND GITHUB **
+
+Configurar git con usuario y correo
+> se requiere configurar para que el repositorio sepa quien esta haciendo los cambios
+
+git config                          -> muestra toda la configuracion del entrono
+git config --list                   -> muestra la configuracion por defecto
+git config --list --show-origin     -> muestra la configuracion del respositorio guardadas
+git config --global user.name       -> agrega un usuario
+git config --global user.email      -> agregar un correo al usuario
+
+
+Comandos basicos
+
+git init                            -> inicia un repositorio
+git status                          -> conocer el estatus de los archivo
+git add archivo                     -> agregar un archivo al repositorio
+git add .                           -> agregar todos los archivos modificados al respositorio
+git rm archivo                      -> remover un archivo del repositorio
+git rm --cached archivo             -> remover un archivo de cache (vuelve al estado inicial fuera del status)
+git commit -m "mensaje"             -> agregar un comentario de los cambios realizados
+
+git log                             -> ver historia del repositorio
+git log archivo                     -> muestra toda la historia del archivo
+git show archivo                    -> muestra los cambios que se hicieron en el archivo
+git diff commitA commitB            -> muestra la comparativa entre los dos archivos (influye el aroden de los commits para saver la comparativa)
+
+git reset version                   -> revertir cambios
+git reset version --hard            -> revertir cambios sin imporatar que haga
+git reset version --soft            -> 
