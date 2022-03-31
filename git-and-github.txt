@@ -57,3 +57,6 @@ Merge
 git merge nombre_rama               -> fucionamos las ramas y se debe agrega un mensaje
 
 
+Conflictos
+> se hace un merge y mostrara los errores de las lineas que son afectadas
+> se puede eliminar las lineas que generen el error de forma manual, posteriormente se debe realizar un commit
