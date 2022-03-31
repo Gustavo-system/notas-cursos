@@ -18,13 +18,20 @@ git add archivo                     -> agregar un archivo al repositorio
 git add .                           -> agregar todos los archivos modificados al respositorio
 git rm archivo                      -> remover un archivo del repositorio
 git rm --cached archivo             -> remover un archivo de cache (vuelve al estado inicial fuera del status)
+giy rm --force archivo              -> elimina los archivos de git y del disco duro
 git commit -m "mensaje"             -> agregar un comentario de los cambios realizados
 
 git log                             -> ver historia del repositorio
 git log archivo                     -> muestra toda la historia del archivo
+git log --stat                      -> se muestran los combios en la consolo junto a los logs
 git show archivo                    -> muestra los cambios que se hicieron en el archivo
 git diff commitA commitB            -> muestra la comparativa entre los dos archivos (influye el aroden de los commits para saver la comparativa)
 
 git reset version                   -> revertir cambios
 git reset version --hard            -> revertir cambios sin imporatar que haga
-git reset version --soft            -> 
+git reset HEAD                      -> sacamos los archivos de memoria pero no se borran y se tienen que agregar de nuevo en caso que asi se desee
+git reset version --soft            -> revertir cambios pero los anteriores archivos agregados se mantienen
+
+git checkout                        -> traer cambios hechos por otra persona
+git checkout commit archivo         -> regresa un archivo al commit solicitado
+git checkout master archivo         -> regresamos a la ultima version
