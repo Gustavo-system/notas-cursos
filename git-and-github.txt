@@ -20,6 +20,7 @@ git rm archivo                      -> remover un archivo del repositorio
 git rm --cached archivo             -> remover un archivo de cache (vuelve al estado inicial fuera del status)
 giy rm --force archivo              -> elimina los archivos de git y del disco duro
 git commit -m "mensaje"             -> agregar un comentario de los cambios realizados
+git commit -am "mensaje"            -> hace el commit y el add de los cambios (solo si ya estan agregados los archivos previamente)
 
 git log                             -> ver historia del repositorio
 git log archivo                     -> muestra toda la historia del archivo
@@ -33,5 +34,26 @@ git reset HEAD                      -> sacamos los archivos de memoria pero no s
 git reset version --soft            -> revertir cambios pero los anteriores archivos agregados se mantienen
 
 git checkout                        -> traer cambios hechos por otra persona
+git checkout -b "nombre_rama"       -> crea una rama y hace checkout de la rama
 git checkout commit archivo         -> regresa un archivo al commit solicitado
 git checkout master archivo         -> regresamos a la ultima version
+
+git clone url                       -> clonamos todo lo que esta en el repositorio remoto
+git push                            -> se manda el head al servidor remoto
+git fetch                           -> nos trae actualizaciones deñ servidor remoto
+git merge                           -> fucionar las versiones que se bajaron con el fetch
+git pull                            -> traemos y actualizamos nuestros archivos
+
+
+Ramas
+git branch                          -> muestra todas las ramas existentes
+git branch nombre_rama              -> creamos una rama
+git checkout nombre_rama            -> cambiamos de rama (si no se hace un add y un commit, cuando se cambia de rama se pierde todo lo modificado)
+
+
+Merge
+> cambiar a la rama master ya que es la rama principal antes de hacer un merge
+
+git merge nombre_rama               -> fucionamos las ramas y se debe agrega un mensaje
+
+
