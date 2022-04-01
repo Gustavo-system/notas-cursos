@@ -171,3 +171,14 @@ top                 -> muestra todos los procesos que usan mas recursos
 
 man comando         -> leemos el manual de usaurio de un comando
 
+
+** File description **
+stdin 0             -> codigo de input
+stdout 1            -> codigo de salida 
+stderr 2            -> codigo de error
+
+comando > archivo   -> guarda en un archivo la salida del comando (se sobre escribe cuando se ejecuta en nuevo archivo)
+comando >> archivo  -> constena la salida de comando ingresado
+
+ejemplos de salidas
+comando 2> archivo  -> guarda en el archivo el error que se mande del comando
