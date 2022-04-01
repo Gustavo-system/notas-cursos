@@ -32,7 +32,8 @@ mkdir "nombre saparado" -> se crea un archivo con nombre separado
 touch                   -> se crea un archivo
 touch nombre1 nombre2   -> se crean varios archivos
 
-copy/cp archivo newName -> copiar achivo en el mismo directorio
+copy/cp archivo newName                 -> copiar achivo en el mismo directorio
+cp -r mi_directorio ruta_destino        -> copiar un direcctorio y su contenido
 
 move/mv ruta            -> mueve un archivo a otro directorio
 mv nombre newName       -> mueve el archivo con el nuevo nombre
@@ -89,7 +90,7 @@ comando | comando       -> egecuta el comando y se puede generar un ouput de lec
 ** Comandos encadenados **
 
 comando; comando;       -> se separan por medio un ; los comandos que se deseen ejecutar
-comando & comando       -> se ejecutan comandos en distintos procesos
+comando & comando       -> se ejecutan comandos en distintos procesos de forma asincrona
 comando && comando      -> se ejecutan comandos de manera condicional and // mkdir test && cd test
 comando || comando      -> se ejecuta con la condicion or // cd direcctorio or mkdir direcctorio && echo "hola mundo"
 
@@ -168,5 +169,5 @@ ps                  -> muestra los procesos que estan corriendo actualmente
 kill PID            -> deberia eliminar el proceso pero si corren en backgran dentro de la terminal no lo borra
 top                 -> muestra todos los procesos que usan mas recursos
 
-
+man comando         -> leemos el manual de usaurio de un comando
 
