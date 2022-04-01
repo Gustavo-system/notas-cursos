@@ -1,0 +1,172 @@
+Curso de Terminal y linea de comandos
+
+** Comandos basicos **
+
+clear/ctrl+l            -> limpiar pantalla
+
+pwd                     -> nos dice en que ruta estamos
+
+cd directorio           -> cambiar directorio
+cd ..                   -> retroceder una carpeta, solo se pone cd te regresa a home
+
+ls                      -> listar
+ls -l                   -> listar con detalles del archivo
+ls -lh                  -> listar con detalles humano
+ls -la                  -> listar todos los archivos ocultos en forma de lista
+ls -lS                  -> lista los archivos por peso y se puede agregar h para mas especifico
+ls -lr                  -> mostrar archivo de reversa
+ls directorio           -> muestra lo que hay dentro del directorio sin entrar
+
+ctrl + shift + c        -> copiar
+ctrl + shift + v        -> pegar
+
+file archivo            -> nos dice que tipo de es
+
+tree                    -> mostrar todos los direcctorios de forma de arbol
+tree -L 2               -> solo muestra los archivos por niveles
+
+mkdir nombre            -> se crea una carpeta
+mkdir nombre1 nombre2   -> se crean varias carpetas
+mkdir "nombre saparado" -> se crea un archivo con nombre separado
+
+touch                   -> se crea un archivo
+touch nombre1 nombre2   -> se crean varios archivos
+
+copy/cp archivo newName -> copiar achivo en el mismo directorio
+
+move/mv ruta            -> mueve un archivo a otro directorio
+mv nombre newName       -> mueve el archivo con el nuevo nombre
+
+remove/rm archivo       -> elimina el archivo
+rm -i archivo           -> pregunta si se desea eliminar el archivo
+rm -r directorio        -> elimina el directorio
+rm -rf directorio       -> elimina todo sin importar nada
+rm -ri directorio       -> pregunta si se desea aliminar archivo por archivo
+
+head archivo            -> muestra las primeras 10 lineas del archivo
+head archivo -n 15      -> muestra las primeras 15 lineas de texto, ese numero es libre
+tail archivo            -> muestra las ultimas 10 lineas
+tail archivo -n 15      -> muestra las ultimas 15 lienas de texto, igual se puede cambiar el numero
+less archivo            -> muestra todo el archivo de texto, para salir presiona la tecla Q
+
+open archivo            -> abre el archivo en mac
+xdg-open archivo        -> abre el archivo en nuestro editor de texto
+nautilus directorio     -> abre la interfas de la carpeta indicada
+
+
+** Informacion de comandos **
+
+type comando            -> describe el tipo del comando
+comando --help          -> muestra las opciones posibles para ese comando
+man comando             -> muestra un manual del comando
+info comando            -> muestra informacion del comando
+whatis comando          -> una breve descripcion del comando
+
+alias nombre="comando"  -> crear un alias de un comando, pero no son persistentes
+
+
+** Wildcards **
+Hacer una busqueda de archivos con similitudes
+
+ls *.extencion          -> muestre todos los archivos con esa extencion
+ls palabra*             -> muestre todos los archivos que tengan coincidenca con la palabla en el nombre
+ls palabra?             -> muestre todos los archivos que tengan una letra extra de la palabra indicada, se peuden agregar mas signos de ??
+ls [[:upper:]]*         -> muestre todos los archos que incien con mayuscula en dos niveles dentro
+ls -d [[:upper:]]*      -> muestra todos los directorios o archivos que inicien con mayuscula en el mismo nivel
+ls [ab]*                -> muestra archivos que incien con las letras indicadas dentro de []
+
+
+** Redirecciones **
+Guardar los errores dentro de un archivo para saber que ocurre
+
+** PIPE Operator **
+echo "Hola mundo"       -> implime lo que se le indique
+cat archivo1 archivo2   -> concatena el contenido de los archivos o el archivo que se indique
+comando | tee archivo   -> guarda en un archivo lo que se egecute
+comando | comando       -> egecuta el comando y se puede generar un ouput de lectura
+
+
+** Comandos encadenados **
+
+comando; comando;       -> se separan por medio un ; los comandos que se deseen ejecutar
+comando & comando       -> se ejecutan comandos en distintos procesos
+comando && comando      -> se ejecutan comandos de manera condicional and // mkdir test && cd test
+comando || comando      -> se ejecuta con la condicion or // cd direcctorio or mkdir direcctorio && echo "hola mundo"
+
+comando > nuevo_archivo -> guarda en un archivo indicado el resultado de la ejecucion del comando
+
+
+** Permisos **
+octal       binario     Permisos
+0           000         ---
+1           001         --x
+2           010         -w-
+3           011         -wx
+4           100         r--
+5           101         r-x
+6           110         rw-
+7           111         rwx
+
+tipos de usuarios
+u                       -> usuario
+g                       -> grupo
+o                       -> otros
+
+whoami                  -> para saber que usuario somos
+id                      -> a que grupos pertenece y el uuid del usuario
+switch user/su nombre   -> cambiar de usuario
+passwd                  -> cambia la contraseña
+
+chmod 755 archivo       -> se asignan los permisos, usuario | gurpo | otros
+chmod u-r archivo       -> se quitan permisos especificos
+chmod u+r archivo       -> se le agregan permisos especificos
+
+
+** Links simbolicos **
+ln -s ruta nombreRuta   -> hacer un link simbolico
+
+
+** Comandos de busqueda **
+which programa                      -> muestra la direccion del programa
+find rutaInicial -name nombre       -> muestra todos los archivos que existan a partir de la ruta indicada
+find rutaInicial -type fd nombre    -> se le puede porner f de files o d de directorio y se realiza la busqueda
+
+
+** grep **
+grep palabra archivo                -> busca dentro del archivo la palabra que indicas y te retorna todas las lineas que coincidan
+greo -i palabra archivo             -> ignora si son mayusculas o minusculas
+grep -c palabla archivo             -> cuenta el numero de veces que aparece la palabra en el archivo
+grep -ci palabla archivo            -> la union de los dos comandos anteriores
+grep -v palabra archivo             -> retorna todas las que no coincidan con la palabra indicada
+
+wc archivo                          -> contar cuantas palabras hay en el archivo
+wc -l archivo                       -> contar el numero de lineas
+wc -w archivo                       -> contar el numero de palabras
+wc -c archivo                       -> nos retorna el numero de bits
+
+
+** Red **
+ifconfig                            -> muestra informacion de nuestra red
+ping pagina_web                     -> no indica si una pagina esta activa
+curl url                            -> traer un archivo por medio de la red
+wget url                            -> descarga el archivo en nuestra computadora
+traceroute url                      -> nos indica todo el camino que recorremos para llegar a la pagina
+netstat -i                          -> nos muestra los dispositivos de red
+
+
+** comprimir y descomprimir **
+tar -cvf nombre.tar carpeta         -> comprime un archivo
+tar -cvzf nombre.tar.gz carpeta     -> comprime un archivo con una comprecion de gz
+tar -xzvf archivo_comprimido        -> descomprimir el archivo gz
+
+zip -r carpeta.zip nombre_carpeta   -> comprime la carpeta con una extencion zip
+unzip carpeta.zip                   -> descomprimir una carpeta .zip
+
+
+** manejo de procesos **
+ps                  -> muestra los procesos que estan corriendo actualmente
+kill PID            -> deberia eliminar el proceso pero si corren en backgran dentro de la terminal no lo borra
+top                 -> muestra todos los procesos que usan mas recursos
+
+
+
