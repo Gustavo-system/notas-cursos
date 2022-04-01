@@ -1,4 +1,6 @@
 # git-and-terminal
 
--notas de git and github 
--notas de terminal y liena de comandos
+- Temario
+
+    1. notas de git and github 
+    2. notas de terminal y liena de comandos
