@@ -7,7 +7,7 @@ git config                          -> muestra toda la configuracion del entrono
 git config --list                   -> muestra la configuracion por defecto
 git config --list --show-origin     -> muestra la configuracion del respositorio guardadas
 git config --global user.name       -> agrega un usuario
-git config --global user.email      -> agregar un correo al usuario
+git config --global user.email      -> agregar un correo al usuario o cambiar el email
 
 
 Comandos basicos
@@ -45,6 +45,9 @@ git merge                           -> fucionar las versiones que se bajaron con
 git pull                            -> traemos y actualizamos nuestros archivos
 
 
+git pull origin rama --allow-unrelated-histories    -> forzar a fucionar cambios del repositorio con nuestro local
+
+
 Ramas
 git branch                          -> muestra todas las ramas existentes
 git branch nombre_rama              -> creamos una rama
@@ -60,3 +63,15 @@ git merge nombre_rama               -> fucionamos las ramas y se debe agrega un 
 Conflictos
 > se hace un merge y mostrara los errores de las lineas que son afectadas
 > se puede eliminar las lineas que generen el error de forma manual, posteriormente se debe realizar un commit
+
+
+
+Conectar con repositorio remoto
+git remote                          -> lista el repositorio remoto al que apunta
+git remote -v                       -> muestra el origin para hacer push y fetch
+git remote add origin url           -> agrega el repositorio
+
+
+
+Creacion de llaves SSH
+ssh-keygen -t rsa -b 4096 -C "correo_git"       -> crear una llave ssh en la carpeta .ssh/id_rsa
