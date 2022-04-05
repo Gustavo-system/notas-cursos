@@ -75,3 +75,5 @@ git remote add origin url           -> agrega el repositorio
 
 Creacion de llaves SSH
 ssh-keygen -t rsa -b 4096 -C "correo_git"       -> crear una llave ssh en la carpeta .ssh/id_rsa
+eval $(ssh-agent -s)                            -> evaluando si rdts corriengo el agente de ssh y se ejecuta de manera correcta
+ssh-add ruta_llave_privada                      -> se agrega la llave privada al ssh
