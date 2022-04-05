@@ -3,61 +3,70 @@
 Configurar git con usuario y correo
 > se requiere configurar para que el repositorio sepa quien esta haciendo los cambios
 
-git config                          -> muestra toda la configuracion del entrono
-git config --list                   -> muestra la configuracion por defecto
-git config --list --show-origin     -> muestra la configuracion del respositorio guardadas
-git config --global user.name       -> agrega un usuario
-git config --global user.email      -> agregar un correo al usuario o cambiar el email
+git config                                          -> muestra toda la configuracion del entrono
+git config --list                                   -> muestra la configuracion por defecto
+git config --list --show-origin                     -> muestra la configuracion del respositorio guardadas
+git config --global user.name                       -> agrega un usuario
+git config --global user.email                      -> agregar un correo al usuario o cambiar el email
 
 
 Comandos basicos
 
-git init                            -> inicia un repositorio
-git status                          -> conocer el estatus de los archivo
-git add archivo                     -> agregar un archivo al repositorio
-git add .                           -> agregar todos los archivos modificados al respositorio
-git rm archivo                      -> remover un archivo del repositorio
-git rm --cached archivo             -> remover un archivo de cache (vuelve al estado inicial fuera del status)
-giy rm --force archivo              -> elimina los archivos de git y del disco duro
-git commit -m "mensaje"             -> agregar un comentario de los cambios realizados
-git commit -am "mensaje"            -> hace el commit y el add de los cambios (solo si ya estan agregados los archivos previamente)
+git init                                            -> inicia un repositorio
+git status                                          -> conocer el estatus de los archivo
+git add archivo                                     -> agregar un archivo al repositorio
+git add .                                           -> agregar todos los archivos modificados al respositorio
+git rm archivo                                      -> remover un archivo del repositorio
+git rm --cached archivo                             -> remover un archivo de cache (vuelve al estado inicial fuera del status)
+giy rm --force archivo                              -> elimina los archivos de git y del disco duro
+git commit -m "mensaje"                             -> agregar un comentario de los cambios realizados
+git commit -am "mensaje"                            -> hace el commit y el add de los cambios (solo si ya estan agregados los archivos previamente)
 
-git log                             -> ver historia del repositorio
-git log archivo                     -> muestra toda la historia del archivo
-git log --stat                      -> se muestran los combios en la consolo junto a los logs
-git show archivo                    -> muestra los cambios que se hicieron en el archivo
-git diff commitA commitB            -> muestra la comparativa entre los dos archivos (influye el aroden de los commits para saver la comparativa)
+git log                                             -> ver historia del repositorio
+git log archivo                                     -> muestra toda la historia del archivo
+git log --stat                                      -> se muestran los combios en la consolo junto a los logs
+git log --all                                       -> mustra todo lo que ha ocurrido en todo el repositorio y ramas
+git log --all --graph                               -> muestra la historia con una rayitas de como se han fucionado las ramas
+git log --all --graph --decorate --oneline          -> muestra como se han fucionado las ramas de forma más presisa
 
-git reset version                   -> revertir cambios
-git reset version --hard            -> revertir cambios sin imporatar que haga
-git reset HEAD                      -> sacamos los archivos de memoria pero no se borran y se tienen que agregar de nuevo en caso que asi se desee
-git reset version --soft            -> revertir cambios pero los anteriores archivos agregados se mantienen
+git show archivo                                    -> muestra los cambios que se hicieron en el archivo
+git diff commitA commitB                            -> muestra la comparativa entre los dos archivos (influye el aroden de los commits para saver la comparativa)
 
-git checkout                        -> traer cambios hechos por otra persona
-git checkout -b "nombre_rama"       -> crea una rama y hace checkout de la rama
-git checkout commit archivo         -> regresa un archivo al commit solicitado
-git checkout master archivo         -> regresamos a la ultima version
+git reset version                                   -> revertir cambios
+git reset version --hard                            -> revertir cambios sin imporatar que haga
+git reset HEAD                                      -> sacamos los archivos de memoria pero no se borran y se tienen que agregar de nuevo en caso que asi se desee
+git reset version --soft                            -> revertir cambios pero los anteriores archivos agregados se mantienen
 
-git clone url                       -> clonamos todo lo que esta en el repositorio remoto
-git push                            -> se manda el head al servidor remoto
-git fetch                           -> nos trae actualizaciones deñ servidor remoto
-git merge                           -> fucionar las versiones que se bajaron con el fetch
-git pull                            -> traemos y actualizamos nuestros archivos
+git checkout                                        -> traer cambios hechos por otra persona
+git checkout -b "nombre_rama"                       -> crea una rama y hace checkout de la rama
+git checkout commit archivo                         -> regresa un archivo al commit solicitado
+git checkout master archivo                         -> regresamos a la ultima version
 
+git clone url                                       -> clonamos todo lo que esta en el repositorio remoto
+git push                                            -> se manda el head al servidor remoto
+git fetch                                           -> nos trae actualizaciones deñ servidor remoto
+git merge                                           -> fucionar las versiones que se bajaron con el fetch
+git pull                                            -> traemos y actualizamos nuestros archivos
 
 git pull origin rama --allow-unrelated-histories    -> forzar a fucionar cambios del repositorio con nuestro local
 
 
 Ramas
-git branch                          -> muestra todas las ramas existentes
-git branch nombre_rama              -> creamos una rama
-git checkout nombre_rama            -> cambiamos de rama (si no se hace un add y un commit, cuando se cambia de rama se pierde todo lo modificado)
+git branch                                          -> muestra todas las ramas existentes
+git branch nombre_rama                              -> creamos una rama
+git checkout nombre_rama                            -> cambiamos de rama (si no se hace un add y un commit, cuando se cambia de rama se pierde todo lo modificado)
+git show-branch                                     -> muestra las ramas que existen y su historia
+git show-branch --all                               -> muestra toda la historia de la rama
+
+
+gitk                                                -> interfas de git lcoal
+
 
 
 Merge
 > cambiar a la rama master ya que es la rama principal antes de hacer un merge
 
-git merge nombre_rama               -> fucionamos las ramas y se debe agrega un mensaje
+git merge nombre_rama                               -> fucionamos las ramas y se debe agrega un mensaje
 
 
 Conflictos
@@ -67,14 +76,23 @@ Conflictos
 
 
 Conectar con repositorio remoto
-git remote                          -> lista el repositorio remoto al que apunta
-git remote -v                       -> muestra el origin para hacer push y fetch
-git remote add origin url           -> agrega el repositorio
-git remote set-url origin url       -> cambiar la url del repositorio remoto
+git remote                                          -> lista el repositorio remoto al que apunta
+git remote -v                                       -> muestra el origin para hacer push y fetch
+git remote add origin url                           -> agrega el repositorio
+git remote set-url origin url                       -> cambiar la url del repositorio remoto
 
 
 
 Creacion de llaves SSH
-ssh-keygen -t rsa -b 4096 -C "correo_git"       -> crear una llave ssh en la carpeta .ssh/id_rsa
-eval $(ssh-agent -s)                            -> evaluando si rdts corriengo el agente de ssh y se ejecuta de manera correcta
-ssh-add ruta_llave_privada                      -> se agrega la llave privada al ssh
+ssh-keygen -t rsa -b 4096 -C "correo_git"           -> crear una llave ssh en la carpeta .ssh/id_rsa
+eval $(ssh-agent -s)                                -> evaluando si rdts corriengo el agente de ssh y se ejecuta de manera correcta
+ssh-add ruta_llave_privada                          -> se agrega la llave privada al ssh
+
+
+Tags
+git tag -a name -m "mensaje" hash_commit            -> agregamos una etiqueta
+git tag                                             -> vemos todas las tags
+git show-ref --tags                                 -> vemos la tag y el hash del commit asignado
+git push origin --tags                              -> mandamos los tags al repositorio remoto
+git tag -d name_tag                                 -> eliminar una tag de forma local
+git push origin :refs/tags/name_tag                 -> elimina la referencia del tag en el repositorio remoto
