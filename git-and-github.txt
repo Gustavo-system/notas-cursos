@@ -70,6 +70,7 @@ Conectar con repositorio remoto
 git remote                          -> lista el repositorio remoto al que apunta
 git remote -v                       -> muestra el origin para hacer push y fetch
 git remote add origin url           -> agrega el repositorio
+git remote set-url origin url       -> cambiar la url del repositorio remoto
 
 
 
