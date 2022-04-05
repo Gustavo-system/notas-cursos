@@ -59,14 +59,14 @@ git show-branch                                     -> muestra las ramas que exi
 git show-branch --all                               -> muestra toda la historia de la rama
 
 
-gitk                                                -> interfas de git lcoal
+gitk                                                -> interfas de git local
 
 
 
 Merge
 > cambiar a la rama master ya que es la rama principal antes de hacer un merge
 
-git merge nombre_rama                               -> fucionamos las ramas y se debe agrega un mensaje
+git merge nombre_rama "mensaje"                     -> fucionamos las ramas y se debe agrega un mensaje
 
 
 Conflictos
@@ -80,6 +80,8 @@ git remote                                          -> lista el repositorio remo
 git remote -v                                       -> muestra el origin para hacer push y fetch
 git remote add origin url                           -> agrega el repositorio
 git remote set-url origin url                       -> cambiar la url del repositorio remoto
+
+git remote add upstream url                         -> agregamos un repositorio nuevo de donde hacer pull y push
 
 
 
@@ -96,3 +98,9 @@ git show-ref --tags                                 -> vemos la tag y el hash de
 git push origin --tags                              -> mandamos los tags al repositorio remoto
 git tag -d name_tag                                 -> eliminar una tag de forma local
 git push origin :refs/tags/name_tag                 -> elimina la referencia del tag en el repositorio remoto
+
+
+Fork
+> se clona el proyecto como un fork y podemos modificar ya que es un clonado del mismo, para poder hacer cambios se debe hacer un pull request
+> funcionan de la misma manera que las ramas
+> siempre que se desee ver los cambios que hay se hacer un pull ya que los forks se quedan y no se actualizan solos
