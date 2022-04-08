@@ -61,6 +61,7 @@ git branch -r                                       -> nos muestra las ramas rem
 git branch -a                                       -> nos muestra todas las ramas tanto remotas como locales
 git show-branch                                     -> muestra las ramas que existen y su historia
 git show-branch --all                               -> muestra toda la historia de la rama
+git push origin nombre_rama                         -> mandamos al repositorio remoto nuestra rama local
 git push origin --delete nombre_rama                -> eliminar ramas remotas
 
 gitk                                                -> interfas de git local
