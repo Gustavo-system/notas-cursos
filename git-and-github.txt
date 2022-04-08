@@ -18,6 +18,7 @@ git add archivo                                     -> agregar un archivo al rep
 git add .                                           -> agregar todos los archivos modificados al respositorio
 git rm archivo                                      -> remover un archivo del repositorio
 git rm --cached archivo                             -> remover un archivo de cache (vuelve al estado inicial fuera del status)
+git rm --cached -r directorio                       -> remover un directorio con archivos del respositorio local 
 giy rm --force archivo                              -> elimina los archivos de git y del disco duro
 git commit -m "mensaje"                             -> agregar un comentario de los cambios realizados
 git commit -am "mensaje"                            -> hace el commit y el add de los cambios (solo si ya estan agregados los archivos previamente)
