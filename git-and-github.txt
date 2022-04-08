@@ -39,6 +39,7 @@ git reset HEAD                                      -> sacamos los archivos de m
 git reset version --soft                            -> revertir cambios pero los anteriores archivos agregados se mantienen
 
 git checkout                                        -> traer cambios hechos por otra persona
+git checkout nombre_rama                            -> cambiamos de rama (si no se hace un add y un commit, cuando se cambia de rama se pierde todo lo modificado)
 git checkout -b "nombre_rama"                       -> crea una rama y hace checkout de la rama
 git checkout commit archivo                         -> regresa un archivo al commit solicitado
 git checkout master archivo                         -> regresamos a la ultima version
@@ -55,13 +56,14 @@ git pull origin rama --allow-unrelated-histories    -> forzar a fucionar cambios
 Ramas
 git branch                                          -> muestra todas las ramas existentes
 git branch nombre_rama                              -> creamos una rama
-git checkout nombre_rama                            -> cambiamos de rama (si no se hace un add y un commit, cuando se cambia de rama se pierde todo lo modificado)
+git branch -D nombre_rama                           -> eliminamos un rama
+git branch -r                                       -> nos muestra las ramas remotas
+git branch -a                                       -> nos muestra todas las ramas tanto remotas como locales
 git show-branch                                     -> muestra las ramas que existen y su historia
 git show-branch --all                               -> muestra toda la historia de la rama
-
+git push origin --delete nombre_rama                -> eliminar ramas remotas
 
 gitk                                                -> interfas de git local
-
 
 
 Merge
@@ -105,3 +107,55 @@ Fork
 > se clona el proyecto como un fork y podemos modificar ya que es un clonado del mismo, para poder hacer cambios se debe hacer un pull request
 > funcionan de la misma manera que las ramas
 > siempre que se desee ver los cambios que hay se hacer un pull ya que los forks se quedan y no se actualizan solos
+
+
+Rebase
+> estando en la rama creada se ejecuta el comando rebase, primero se hace el rebase a la rama que se desaparecera de la historia
+> despues se le hace rebase a la rama principal
+
+git rebase master                                   -> paga los cambios de otra rama a la rama indicada / reescribe la historia del repositorio
+
+
+Stash
+> guardar los cambios sin hacer push
+
+git stash                                           -> agregar cambios a un entorno temporal
+git stash list                                      -> muestra los stash guardados temporalmente
+git stash pop                                       -> regresar los cambios del stash
+git stash branch nombre_rama                        -> colocar el stash en un rama
+git stash drop                                      -> borrar los stash
+
+
+Clean
+> no actua sobre archivo de -gitignore
+> no actual sobre directorios
+
+git clean --dry-run                                 -> mustra los archivo que se borraran
+git clean -f                                        -> se borraon lo archivo
+
+
+Cherry-pick
+git cherry-pick hash_commit                         -> traer un commit de una rama al master (cuando aun no se termina)
+
+
+Comandos de emergencia 
+git commit --amend                                  -> agrega los cambios nuevos al commit anterior
+git reflog                                          -> se encuentra todo los cambios que se han hecho absolutamente todo
+git reset --SOFT                                    -> resetea todo pero te mantiene los cambios en stalling
+git reset --HARD hash_posicio                       -> resetea todo todo todo 
+
+
+Buscar
+git grep "palabra"                                  -> buscamos la palabra en todo nuestro versionador
+git grep -n "palabra"                               -> buscamos y nos dice en que linea y archivo se encuentra la palabra
+git grep -c "palabra"                               -> saber cuantas veces uso la palabra en todo el repositorio
+
+git log -S "palabra"                                -> buscamos la palabra en los commits realizados
+git short log -sn                                   -> muestra las personas que han hecho ciertos commits
+git short log -an --all                             -> muestra todos los commits aunque sean borrados
+git short log -an --all --no-merges                 -> no incluye los merges que se realizaon 
+
+git blame nombre_archivo                            -> se muestra liena por linea para saber quien modifico el archivo
+git blame -c nombre_archivo                         -> se muestra liena por linea pero mas identado para saber quien modifico el archivo
+git blame archivo -L10,60                           -> muestra quien ha hecho cambios entre las lineas indicadas por -L
+git blame --help                                    -> muestra un manual de los comandos
