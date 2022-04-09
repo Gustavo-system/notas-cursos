@@ -1,0 +1,550 @@
+******************************
+************ Python **********
+******************************
+
+
+
+** Punto de entrada **
+> ejecuta todo lo que esta debajo del entrypoint
+> se puede tener codigo antes del punto de entrada y no sera ejecutado, se pueden declarar funciones o otras acciones
+
+if __name__ == '__main__':
+	codigo
+
+
+
+** Variables **
+
+declaracion de variables, la documentación de python dice que las variables se deben declarar con la sintaxis de snakecase
+esto quiere decir que si la variable tiene mas de una palabra se debe separar con un _ y nunca declarar varbales con numeros al inicio
+
+nombre = "Gustavo"						-> variable = valor
+edad = 21
+
+puede cambiar su valor sin previo aviso
+nombre = "gus"
+nombre = "Ana"
+edad = 21
+
+a, b, c = "lala" , "lele", "lili"		-> multiples variables en una sola linea
+
+
+** Tipos de datos **
+
+== String ==
+saludo = "Hola mundo"
+frase = "Ella me dijo 'Hola'"			-> se utlizan las comillas simples para no generar un error tambien se puede ejecutar de forma inversa
+
+frase = 'Ella me dijo "Hola" '
+frase "Ella me dijo \"Hola\" " 			-> se utliza el slash invetido (\) para que pyton haga caso omiso sobre las comillas dentro de las comillas de la cadena
+
+== BOOLEAN ==
+solo tiene dos valores True and False
+variable = true
+variable = false
+
+== int ==
+numero = 123
+
+== float ==
+decimal = 1.0
+
+== double ==
+decimal = 1.0
+
+
+** Operadores Artirmeticos **
+
+suma 				+
+resta 				-
+multiplicacion 		* 
+divicion 			/
+potencia 			**numero
+divicion entera 	//nuemro
+incremento			++
+decremento			--
+modulo				%
+
+
+** Operadores de comparacion **
+
+menor que 			<
+mayor que 			>
+menor igual 		<=
+mayor igual 		>=
+igual 				==
+distintos 			!=
+
+
+** Operadores logicos **
+
+y					and
+o					or
+
+
+** Concatenacion ** 
+
+para las concatenaciones se utiliza el singo de suma (+)
+
+print (variable1 + variable2)
+print(f'texto { variable }')		-> se puede concatenar con f de formato
+
+
+** Manipulacion de cadenas de carateres **
+
+print (variable * 3) 				-> GustavoGustavoGustavo
+
+texto.upper()						-> convierte en mayusculas el texto
+texto.capitalize()					-> convierte la primera letra en mayuscula
+texto.strip()						-> borra espacios al incio y al final de la cadena
+texto.replace('', '')				-> remplasa el primer parametro por el parametro dos
+texto[posicion]						-> retorna la letra que este en la posicion indicada en el texto
+len(texto)							-> nos indica la longitud del texto
+
+texto[::-1]							-> voltear un string
+text[0:3]							-> recortamos texto 0 = al indice inicial, 3 = elemento final
+texto[1:7:2]						-> recortamos el texto del indice 1 al indice 7 en pasos de 2 en 2
+
+
+
+** Imprimir datos **
+
+print(agumentos) 					-> se utliza un metodo reservado llamado print, al cual se le indica lo que se imprime.
+
+
+** Leer datos **
+
+se utiliza el metodo input, se debe tener en cuenta que todo dato que se ingrese se asigna como un string
+variable = input('texto que indica que valor debe ingresar')
+
+
+** comentarios **
+# 							-> se comenta una linea de codigo
+"""  """					-> se comentan multiples lineas de codigo
+
+
+** conversiones **
+
+str(numero)					-> para convertir un numero en un string se utiliza la palabra reservada
+int(string)					-> convierte una cadena a un numero
+
+type(variable)				-> saber que tipo de dato es la variable
+
+
+
+** CONDICIONES **
+
+Nos ayudan a saber que camino tomara nuestro flujo del programa
+
+== Estructura basica de IF ==
+
+if valor operedor valor:
+	bloque de codigo
+elif condicion:
+	bloque de codigo
+else:
+	bloque de codigo
+
+
+== IF anidados ==
+
+if valor operador valor
+	bloque de codigo
+	if valor operador valor
+		bloque de codigo
+	else: 
+		bloque de codigo
+else:
+	bloque de codigo
+
+
+== IF corto ==
+
+if condicion: bloque de codigo else: bloque de codigo 
+
+
+
+** CICLOS / LOOPS **
+
+nos ayuda a repetir codigo un sierto tipo de veces, existen dos tipos de ciclos while y for
+
+== Sintaxis basica WHILE ==
+
+while condicion:
+	bloque de codigo
+	condicion a cumplir
+
+
+== Sintaxis de FOR ==
+
+for variable_referencia in list/dict:
+	bloque de codigo
+else:
+	bloque de codigo
+
+
+
+** Break **
+la palabra reservada break, rompe el ciclo cuando se cumple la condicion
+
+list_numero = [1,2,3,4,5,6,7,8,9,10]
+
+for numero in list_numero:
+	if numero > 5:											-> esto nos devuelve el valor del 1 al 5 sin ejecutar mas
+		break
+	print (numero)
+
+
+
+** Continue **
+la palabra reservada continue no para el ciclo solo salta el valor seleccionado
+
+for numero in list_numero:
+	if numero == 5:
+		continue											-> esto nos muestra todos los numero del 1 al 10 menos el 5
+	print (numero)
+
+
+
+** Rango **
+> nos permiten tener muchos lementos desde un numero inicial hasta un numero final que nosotros le proporcionamos
+
+rango = rango(6)					-> nos devuelve rango(0,6) en una lista
+
+
+
+
+
+********************************
+***** ESTRUCTURAS DE DATOS *****
+********************************
+
+
+** Listas / Array **
+
+[valor1, valor2, valor3,...] 								-> nombrelista = [1,2,3,4,5]
+
+
+para agredar elementos a las listas de forma manual
+
+nombreLista = nombreLista + [nuevoValor, nuevoValor,...]
+nombreLista += [nuevoValor, nuevoValor,...]					-> se utiliza la suma asignacion, es forma corta de hacer lo de la linea anterior
+
+lista = [1,2,3,4,5]
+lista += [6,7]												-> da como resultado [1,2,3,4,5,6,7]
+
+
+Para acceder al indice de una lista se incia desde el 0
+lista[0]													-> nos devuelve el valor de 1
+
+
+== metodos disponibles en las listas ==
+
+lista.append(valor)											-> .append(valor) 		Para agregar un valor
+lista.extend(valor1,valor2)									-> .extend(valores)		Para agregar multiples valores
+lista.remove(valor)											-> .remove(valor) 		Para remover un elemento especifico
+lista.clear()												-> .clear()				Limpiar toda la lista
+lista.pop()													-> .pop()				Para eliminar el ultimo elemento
+lista.count(valor)											-> .count(valor)		Para contar las veces que se repite el valor indicado en la lista
+lista.reverse()												-> .reverse()			Ordenada de forma inversa la lista
+lista.sort()												-> .sort()				Ordena la lista de menor a mayor exepto si son datos de distinto tipo
+nueva_lista = lista.copy()									-> .copy()				Para hacer una copia exacta de la lista 
+len(lista)													-> len()				Para saber la longitud (numero de elementos) que tiene la lista
+
+podemos utilizar la palabra reservada (list()), sin embargo este objeto solo acepta un parametro
+para poder ingresar varios valores como en una lista normal se usa la siguiente sintexis
+
+list([valor1, valor2, ...])
+
+si ponemos una palabra dentro de list	
+
+list("Gus")													-> el resultado es: ['G','u','s']
+
+
+
+** Diccionarios / objetos / json **
+
+diccionario = {
+	"llave1": "valor1",
+	"llave2": "valor2",
+	"llave3": "valor3",
+}
+
+diccionario['llave']										-> accedemos a travez de string
+diccionario.get('llave')									-> se puede utilizar el metodo get para acceder a los datos
+diccionario['llave'] = 'nuevo_valor'						-> para cambiar los valores del diccionario
+diccionario['nueva_llave'] = 'valor'						-> agregar valores al diccionario
+diccionario.pop('llave') 									-> eliminar un elemento del diccionario
+len(diccionario)											-> para saber la longitud del diccionario
+
+
+
+=> si es el ultimo elemento el ser agregado y se desea borrar se puede utilizar (.popitem())
+=> tambien podemos utilizar (del) //del diccionario['valor']
+=> se puede utilizar (.copy()) o dict(nombreDiccionario)
+=> se utiliza (.clear())
+
+=== Diccionarios Anidados ===
+
+dict = {
+	"llave" : {
+		"llave": valor,
+		"llave2": valor2,
+	}, 
+}
+
+
+
+
+** Tuplas **
+Las tuplas una vez creadas no se pueden modificar
+
+tupla = ('valor1', 'valor2', 'valor3', ...)
+
+tupla.count()												-> numero de elementos que tiene la tupla
+tupla.index() 												-> devuelven la posicion del elemento ( indice del elemeto )
+lista_tupla = list(tupla)									-> para poder alterar la tupla se debe convertir a una lista y usar los metodos de la lista
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+** SPLIT AND JOIN **
+
+para poder usar .split() se utliza despues de la palabra y se utiliza para separar las palabras de una cadena
+el objeto .join() se utiliza para convertir la lista en una sola cadena //objeto de la clase string, no de la clase list
+
+
+***** Indices *****
+
+los indices indican la posicion de un elemento en una lista o en una cadena
+para conocer el indice de un elemento su puede usar el objeto .index()
+el cual devuelve la posiscion en donde esta ubicadao ese elemento
+P/e: 
+list_vocales[a,e,i,o,u]
+lista_vocales.index("e")	esto devuelve la posicion = 1
+
+para conocer que elemeto esta en la posicion se utiliza la siguiente sintaxis
+P/e:
+list_vocales[3]		nos devuelve = o
+
+se puede utilizar posiciones negativas 
+P/e:
+lista_vocales[-1]	nos devuelve = u
+
+
+** palabra reservada del **
+
+Esto elimina variables
+vocales = "aeiou"
+vocales_list = list(vocales)
+//['a','e','i','o','u']
+
+si queremos borrar una variable o elementos de una lista utilizamos (del)
+P/e:
+del vocales
+del vocales_list[0]
+//no se puede modificar el valor de una cadena
+
+
+					***** PALABRA IN *****
+
+esta palabra reservada nos devuelve verdadero y falso, corrobora que exista un elemento en la lista o en la cadena
+"a" in vocales	=>	nos devuelve True
+"a" in vocales_list =>	nos devuelve True
+
+se puede utilizar la palabra reservada (not) para corroborar que no exista el elemento, tambien devuelve un verdadero o un falso
+"a" not vocales =>	nos devulve un False
+"z" not vocales => 	nos devuelve un True
+
+
+					***** FUNCIONES *****
+
+para llamar a una funcion se escribe el nombre de la funcion seguido de parentesis
+P/e: 
+	nombreFuncion() 			//funcion sin parametros
+	nombreFuncion(parametros)	//funcion con parametros
+
+==Declaracion de funciones
+
+Se utiliza la palabra reservada "def"
+P/e:
+	def nombreFuncion():			//funcion sin parametros
+		bloque de codigo 
+
+	def nombreFuncion(parametros):	//funcion con parametros
+		bloque de codigo
+
+=> funciones con argumentos variables
+	def nombreFuncion(*argumento)	=> los argumentos son variables y se imprimen como una tupla
+
+=> funciones como diccionario
+	def nombrefuncion(**kbargs)
+		
+
+					
+					***** EXEPCIONES *****
+se utiizan para no generar errores y terminar el programa tan abuptamente
+try:
+	bloque de codigo
+except error:
+	bloque de codigo
+else:
+	bloque de codigo
+
+
+
+
+					***** RECURSIVIDAD *****
+
+					***** OBJETOS *****
+
+Los objetos en python tienen propiedades y metodos
+
+=>Clases
+se utiliza la palabra reservada (class)
+
+->class Nombre_clase:
+	atributos = valor
+
+Llamada de la clase
+
+	-> instancia = Nombre_clase()
+
+para acceder a las propiedades de la clase 
+	-> instancia.atributo
+
+=> clases mejoradas
+
+class nombreClase:
+	def __init__(self, atributo1, atributo2, ...):
+		self.atributo1 = atrubuto1
+		self.atributo2 = atrubuto2
+
+se utiliza la palbra reservada (__init__) que sera ejecutado siempre al primer metodo que se ejecuta
+al igual que la palabra reservada self que hara referencia al objeto/instancia
+
+
+					***** METODOS *****
+					Reutilizacion de codigo
+
+
+					***** HERENCIA *****
+para hacer referencia a que una clase tiene herencia se utiliza  la siguiente sintaxis
+
+class combreClase(nombreClasePadre):
+	atributos y metodos	
+//def atributo(instancia)
+
+La clase padre no pueden acceder a los metodos ni atributos
+P/e:
+class Animal:
+    def __init__(self, nombre, onomatopeya):
+        self.nombre = nombre
+        self.onomatopeya = onomatopeya
+
+    def saludo(self):
+        print('Hola! soy un ', self.tipo , ' y mi sonido es ', self.onomatopeya)
+
+class Gato(Animal):
+    tipo = 'gato'
+
+class Perro(Animal):
+    tipo = 'perro'
+
+gato=Gato('pelusa', 'maullido')
+perro=Perro('wifi', 'ladrido')
+
+gato.saludo()
+perro.saludo()
+
+					***** MODULOS *****
+=>import nombreArchivo
+
+llamda de atributos
+=>nombreArchivo.atributo
+
+*Renombrar modulos se utiliza la palabra reservada AS
+	->import nombreModulo as nuevoNombre
+*importar datos metodos especificos
+	->from nombreModulo import metodos/variables, otrosModulos
+
+					***** ARCHIVOS *****
+
+*Abrir un archivo se utiliza la palabra reservada Open()
+variable = open('nombre_archivo')
+
+*Para leer un archivo completamente
+print(varicale.read())
+
+*Para leer linea por linea
+print(varicale.readline())
+
+permisos para abrir un archivo en python
+variable = open('nombre_archivo', persimos)
+
+'r' -> read
+'a' -> append (agraga texto sin remplazar)
+'w' -> writhe (remplaza todo lo del archivo, en caso de que no exista lo crea)
+'x' -> crea el archivo, si ya existe manda un error 
+
+una vez leido el archivo lo cerramos
+variable.close()
+
+*Agregar texto al archivo
+variable = open('nombre_archivo', 'a') -> agragar texto
+variable.write('texto')	-> cambia todo el texto y se necesita abrir otra vez el archivo
+
+*Eliminar archivos
+se utiliza un modulo
+import os
+
+os.remove('nombre_archivo')
+
+validar si el archivo existe o no
+if os.path.exists('nombre_archivo')
+	os.remove('nombre_archivo')
+else
+	print('el archivo no existe')
+
+*Para eliminar un directorio
+os.rmdir('ubicacion_archivo')
