@@ -306,16 +306,16 @@ lista[0]									-> nos devuelve el valor de 1
 
 == metodos disponibles en las listas ==
 
-lista.append(valor)								-> .append(valor) 		Para agregar un valor
-lista.extend(valor1,valor2)							-> .extend(valores)		Para agregar multiples valores
-lista.remove(valor)								-> .remove(valor) 		Para remover un elemento especifico
-lista.clear()									-> .clear()			Limpiar toda la lista
-lista.pop()									-> .pop()			Para eliminar el ultimo elemento
-lista.count(valor)								-> .count(valor)		Para contar las veces que se repite el valor indicado en la lista
-lista.reverse()									-> .reverse()			Ordenada de forma inversa la lista
-lista.sort()									-> .sort()			Ordena la lista de menor a mayor exepto si son datos de distinto tipo
-nueva_lista = lista.copy()							-> .copy()			Para hacer una copia exacta de la lista 
-len(lista)									-> len()			Para saber la longitud (numero de elementos) que tiene la lista
+lista.append(valor)							-> .append(valor) 		Para agregar un valor
+lista.extend(valor1,valor2)						-> .extend(valores)		Para agregar multiples valores
+lista.remove(valor)							-> .remove(valor) 		Para remover un elemento especifico
+lista.clear()								-> .clear()			Limpiar toda la lista
+lista.pop()								-> .pop()			Para eliminar el ultimo elemento
+lista.count(valor)							-> .count(valor)		Para contar las veces que se repite el valor indicado en la lista
+lista.reverse()								-> .reverse()			Ordenada de forma inversa la lista
+lista.sort()								-> .sort()			Ordena la lista de menor a mayor exepto si son datos de distinto tipo
+nueva_lista = lista.copy()						-> .copy()			Para hacer una copia exacta de la lista 
+len(lista)								-> len()			Para saber la longitud (numero de elementos) que tiene la lista
 
 >>> podemos utilizar la palabra reservada (list()), sin embargo este objeto solo acepta un parametro
 >>> para poder ingresar varios valores como en una lista normal se usa la siguiente sintexis
@@ -368,6 +368,10 @@ tupla.count()									-> numero de elementos que tiene la tupla
 tupla.index() 									-> devuelven la posicion del elemento ( indice del elemeto )
 lista_tupla = list(tupla)						-> para poder alterar la tupla se debe convertir a una lista y usar los metodos de la lista
 
+
+
+
+** Entornos Virtuales **
 
 
 
