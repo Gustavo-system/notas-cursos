@@ -372,6 +372,12 @@ lista_tupla = list(tupla)						-> para poder alterar la tupla se debe convertir 
 
 
 ** Entornos Virtuales **
+py -m venv nombre_venv							-> creamos un ambiente virtual
+.\venv\Script\activate							-> activamos el entrono virtual en windows
+source venv/bin/activate						-> activamos el entorno virtual en linux y MacOs
+deactivate										-> desactivamos el entrono virtual
+
+
 
 
 
