@@ -1,0 +1,87 @@
+Esc 	=> dos veces seguido de 
+:q	=> salir del editor 
+:q!	=> forzar salida 
+
+*Modulos
+movimientos
+H 	=> Derecha
+L	=> Izquierda
+j	=> Abajo
+k	=> Arriba
+
+W	=> Saltar Palabras Adelante
+B	=> Saltar Palabras Atras
+
+*Insertar texto
+i	=> se posiciona detras de la letra con el cursor
+a	=> se posiciona adelante de la letra con el cursor
+
+x	=> elimina los caracteres que se desean eliminar
+dd	=>eliminar la linea
+
+*guardar cambios (modo normal)
+:w	
+:wq	=>guardar y salir
+
+*Moverse entre archivos
+g + d	=> ver de donde viene el archivo
+g + f	=>ver otro archivo // previamente se debe guardar :w
+
+ctrl + o	=> regresa al historial
+ctrl + i	=> avansa sobre el historial
+
+*eliminar / undo / redo
+d + w		=>eliminar palabras
+u		=> desacer la accion realizada
+ctrl + r	=> para reacer la acccion
+d + $		=> elimina toda la linea despues del cursor
+
+*convinar operadores con movimientos
+
+d + e	=>borrar delante
+d + w	=>borrar delante
+d + b	=>borrar atras
+
+d + numero	=> elimina desde donde estas en adelante
+numero + w	=> salta el numero de veces que se proporciono
+
+*Copiar y pegar
+d + d	 =>elimina la linea completamente(copiar)
+p 	 =>para pegar en la linea de abajo
+shif + p =>pegar en la linea de arriba
+
+*Remplasar
+comando inutil
+->nos posicionamos en la letra y precionamos r y tipiamos la letra que se desea
+shift + r
+
+->cambio
+c + w 		=> cambiar la palabra
+c + i + w	=> elimina la palabra sin estar al inicio
+
+*Saltar a linea
+g + g		=> inicio del archivo
+numero + G	=> salta al la linea deseada
+
+/palabra	=> busqueda
+preciona enter y seguido se puede presionar la n que te dirige a todas las coincidencias
+
+Saltar a las llaves
+shift + 5%
+
+0	=> nos lleva al incio de la linea
+$	=> final de la linea
+
+:s/palabra/nuevaPalabra		=> sustituir
+:s/palabra/nuevaPalabra/g	=> sustituir todo //solo funciona en la linea
+:%s/palabra/nuevaPalabra		=> sustituir en todos lados
+
+o	=>Abrir una nueva linea abajo
+O	=>nueva linea arriba
+
+v	=>modo visual
+y	=>copiar
+p	=>pegar
+
+***** CONFIGURACION *****
+vim .vimrc
