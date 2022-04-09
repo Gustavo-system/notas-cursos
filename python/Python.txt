@@ -57,10 +57,10 @@ decimal = 1.0
 
 suma 				+
 resta 				-
-multiplicacion		*
+multiplicacion			*
 divicion 			/
 potencia 			**numero
-divicion entera		//nuemro
+divicion entera			//nuemro
 incremento			++
 decremento			--
 modulo				%
@@ -94,32 +94,32 @@ print(f'texto { variable }')		-> se puede concatenar con f de formato
 
 print (variable * 3)				-> GustavoGustavoGustavo
 
-texto.upper()						-> convierte en mayusculas el texto
-texto.capitalize()					-> convierte la primera letra en mayuscula
-texto.strip()						-> borra espacios al incio y al final de la cadena
+texto.upper()					-> convierte en mayusculas el texto
+texto.capitalize()				-> convierte la primera letra en mayuscula
+texto.strip()					-> borra espacios al incio y al final de la cadena
 texto.replace('', '')				-> remplasa el primer parametro por el parametro dos
-texto[posicion]						-> retorna la letra que este en la posicion indicada en el texto
-len(texto)							-> nos indica la longitud del texto
+texto[posicion]					-> retorna la letra que este en la posicion indicada en el texto
+len(texto)					-> nos indica la longitud del texto
 
-texto[::-1]							-> voltear un string
-text[0:3]							-> recortamos texto 0 = al indice inicial, 3 = elemento final
-texto[1:7:2]						-> recortamos el texto del indice 1 al indice 7 en pasos de 2 en 2
+texto[::-1]					-> voltear un string
+text[0:3]					-> recortamos texto 0 = al indice inicial, 3 = elemento final
+texto[1:7:2]					-> recortamos el texto del indice 1 al indice 7 en pasos de 2 en 2
 
 
 
 ** Imprimir datos **
 
-print(agumentos) 					-> se utliza un metodo reservado llamado print, al cual se le indica lo que se imprime.
+print(agumentos) 				-> se utliza un metodo reservado llamado print, al cual se le indica lo que se imprime.
 
 
 ** Leer datos **
 
-se utiliza el metodo input, se debe tener en cuenta que todo dato que se ingrese se asigna como un string
+>>> se utiliza el metodo input, se debe tener en cuenta que todo dato que se ingrese se asigna como un string
 variable = input('texto que indica que valor debe ingresar')
 
 
 ** comentarios **
-# 							-> se comenta una linea de codigo
+# 						-> se comenta una linea de codigo
 """  """					-> se comentan multiples lineas de codigo
 
 
@@ -128,13 +128,13 @@ variable = input('texto que indica que valor debe ingresar')
 str(numero)					-> para convertir un numero en un string se utiliza la palabra reservada
 int(string)					-> convierte una cadena a un numero
 
-type(variable)				-> saber que tipo de dato es la variable
+type(variable)					-> saber que tipo de dato es la variable
 
 
 
 ** CONDICIONES **
 
-Nos ayudan a saber que camino tomara nuestro flujo del programa
+>>> Nos ayudan a saber que camino tomara nuestro flujo del programa
 
 == Estructura basica de IF ==
 
@@ -166,7 +166,7 @@ if condicion: bloque de codigo else: bloque de codigo
 
 ** CICLOS / LOOPS **
 
-nos ayuda a repetir codigo un sierto tipo de veces, existen dos tipos de ciclos while y for
+>>> Nos ayuda a repetir codigo un sierto tipo de veces, existen dos tipos de ciclos while y for
 
 == Sintaxis basica WHILE ==
 
@@ -185,7 +185,7 @@ else:
 
 
 ** Break **
-la palabra reservada break, rompe el ciclo cuando se cumple la condicion
+>>> La palabra reservada break, rompe el ciclo cuando se cumple la condicion
 
 list_numero = [1,2,3,4,5,6,7,8,9,10]
 
@@ -197,44 +197,87 @@ for numero in list_numero:
 
 
 ** Continue **
-la palabra reservada continue no para el ciclo solo salta el valor seleccionado
+>>> la palabra reservada continue no para el ciclo solo salta el valor seleccionado
 
 for numero in list_numero:
 	if numero == 5:
-		continue					-> esto nos muestra todos los numero del 1 al 10 menos el 5
+		continue				-> esto nos muestra todos los numero del 1 al 10 menos el 5
 	print (numero)
 
 
 
 ** Rango **
-> nos permiten tener muchos lementos desde un numero inicial hasta un numero final que nosotros le proporcionamos
+>>> nos permiten tener muchos lementos desde un numero inicial hasta un numero final que nosotros le proporcionamos
 
 rango = rango(6)					-> nos devuelve rango(0,6) en una lista
 
 
 
 ** Funciones **
-para llamar a una funcion se escribe el nombre de la funcion seguido de parentesis
-para declarar una funcion se utiliza la palabra reservada "def"
 
-nombreFuncion()						-> funcion sin parametros
+>>> para llamar a una funcion se escribe el nombre de la funcion seguido de parentesis
+>>> para declarar una funcion se utiliza la palabra reservada "def"
+
+nombreFuncion()					-> funcion sin parametros
 nombreFuncion(parametros)			-> funcion con parametros
 
 
-Declaracion de funciones
+>>> Declaracion de funciones
 
 def nombreFuncion():				-> funcion sin parametros
 	bloque de codigo 
 
-def nombreFuncion(parametros):		-> funcion con parametros
+def nombreFuncion(parametros):			-> funcion con parametros
 	bloque de codigo
 
-def nombreFuncion(*argumento)		-> los argumentos son variables y se imprimen como una tupla
+def nombreFuncion(*argumento)			-> los argumentos son variables y se imprimen como una tupla
 	bloque de codigo
 
 def nombrefuncion(**kbargs)			-> funciones como diccionario
 	bloque de codigo
 
+
+
+
+** Indices **
+
+>>>	Los indices indican la posicion de un elemento en una lista o en una cadena
+	para conocer el indice de un elemento su puede usar el objeto .index()
+	el cual devuelve la posiscion en donde esta ubicadao ese elemento
+
+list_vocales[a,e,i,o,u]
+lista_vocales.index("e")		-> esto devuelve la posicion = 1
+
+>>> para conocer que elemeto esta en la posicion se utiliza la siguiente sintaxis
+
+list_vocales[3]					-> nos devuelve = o
+
+>>> se puede utilizar posiciones negativas
+lista_vocales[-1]				-> nos devuelve = u
+
+
+
+
+** palabra reservada del **
+
+>>> Esto elimina variables si queremos borrar una variable o elementos de una lista utilizamos (del)
+	pero no se puede modificar el valor de una cadena
+
+del variable 					-> elimina la variable
+del list[0]						-> elimina la posicion que se le indique de la lista
+
+
+
+
+** PALABRA IN and NOT **
+
+>>> Esta palabra reservada nos devuelve verdadero y falso, corrobora que exista un elemento en la lista o en la cadena
+letra in cadena					->	nos devuelve true or false
+valor in lista 					->	nos devuelve true or false
+
+>>> se puede utilizar la palabra reservada (not) para corroborar que no exista el elemento, tambien devuelve un verdadero o un falso
+letra not cadena 				->	nos devuelve un true or false
+valor not list					-> 	nos devuelve un true or false
 
 
 
@@ -245,7 +288,7 @@ def nombrefuncion(**kbargs)			-> funciones como diccionario
 
 ** Listas / Array **
 
-[valor1, valor2, valor3,...] 								-> nombrelista = [1,2,3,4,5]
+[valor1, valor2, valor3,...] 					-> nombrelista = [1,2,3,4,5]
 
 
 para agredar elementos a las listas de forma manual
@@ -254,34 +297,34 @@ nombreLista = nombreLista + [nuevoValor, nuevoValor,...]
 nombreLista += [nuevoValor, nuevoValor,...]					-> se utiliza la suma asignacion, es forma corta de hacer lo de la linea anterior
 
 lista = [1,2,3,4,5]
-lista += [6,7]												-> da como resultado [1,2,3,4,5,6,7]
+lista += [6,7]									-> da como resultado [1,2,3,4,5,6,7]
 
 
-Para acceder al indice de una lista se incia desde el 0
-lista[0]													-> nos devuelve el valor de 1
+> Para acceder al indice de una lista se incia desde el 0
+lista[0]									-> nos devuelve el valor de 1
 
 
 == metodos disponibles en las listas ==
 
 lista.append(valor)								-> .append(valor) 		Para agregar un valor
-lista.extend(valor1,valor2)						-> .extend(valores)		Para agregar multiples valores
+lista.extend(valor1,valor2)							-> .extend(valores)		Para agregar multiples valores
 lista.remove(valor)								-> .remove(valor) 		Para remover un elemento especifico
-lista.clear()									-> .clear()				Limpiar toda la lista
-lista.pop()										-> .pop()				Para eliminar el ultimo elemento
+lista.clear()									-> .clear()			Limpiar toda la lista
+lista.pop()									-> .pop()			Para eliminar el ultimo elemento
 lista.count(valor)								-> .count(valor)		Para contar las veces que se repite el valor indicado en la lista
 lista.reverse()									-> .reverse()			Ordenada de forma inversa la lista
-lista.sort()									-> .sort()				Ordena la lista de menor a mayor exepto si son datos de distinto tipo
-nueva_lista = lista.copy()						-> .copy()				Para hacer una copia exacta de la lista 
-len(lista)										-> len()				Para saber la longitud (numero de elementos) que tiene la lista
+lista.sort()									-> .sort()			Ordena la lista de menor a mayor exepto si son datos de distinto tipo
+nueva_lista = lista.copy()							-> .copy()			Para hacer una copia exacta de la lista 
+len(lista)									-> len()			Para saber la longitud (numero de elementos) que tiene la lista
 
-podemos utilizar la palabra reservada (list()), sin embargo este objeto solo acepta un parametro
-para poder ingresar varios valores como en una lista normal se usa la siguiente sintexis
+>>> podemos utilizar la palabra reservada (list()), sin embargo este objeto solo acepta un parametro
+>>> para poder ingresar varios valores como en una lista normal se usa la siguiente sintexis
 
 list([valor1, valor2, ...])
 
-si ponemos una palabra dentro de list	
+>>> si ponemos una palabra dentro de list	
 
-list("Gus")										-> el resultado es: ['G','u','s']
+list("Gus")						-> el resultado es: ['G','u','s']
 
 
 
@@ -293,19 +336,16 @@ diccionario = {
 	"llave3": "valor3",
 }
 
-diccionario['llave']							-> accedemos a travez de string
-diccionario.get('llave')						-> se puede utilizar el metodo get para acceder a los datos
-diccionario['llave'] = 'nuevo_valor'			-> para cambiar los valores del diccionario
-diccionario['nueva_llave'] = 'valor'			-> agregar valores al diccionario
-diccionario.pop('llave') 						-> eliminar un elemento del diccionario
-len(diccionario)								-> para saber la longitud del diccionario
-
-
-
-=> si es el ultimo elemento el ser agregado y se desea borrar se puede utilizar (.popitem())
-=> tambien podemos utilizar (del) //del diccionario['valor']
-=> se puede utilizar (.copy()) o dict(nombreDiccionario)
-=> se utiliza (.clear())
+diccionario['llave']						-> accedemos a travez de string
+diccionario.get('llave')					-> se puede utilizar el metodo get para acceder a los datos
+diccionario['llave'] = 'nuevo_valor'		-> para cambiar los valores del diccionario
+diccionario['nueva_llave'] = 'valor'		-> agregar valores al diccionario
+diccionario.pop('llave') 					-> eliminar un elemento del diccionario
+diccionario.popitem() 						-> se elimona el ultimo elemento agregado
+diccionario.copy() 							-> copiamos el diccionario
+diccionario.clear()							-> limpiamos todo el diccionario
+del diccionario['valor']					-> eliminamos el valor del diccionario
+len(diccionario)							-> para saber la longitud del diccionario
 
 === Diccionarios Anidados ===
 
@@ -372,55 +412,6 @@ lista_tupla = list(tupla)						-> para poder alterar la tupla se debe convertir 
 
 
 
-
-
-** SPLIT AND JOIN **
-
-para poder usar .split() se utliza despues de la palabra y se utiliza para separar las palabras de una cadena
-el objeto .join() se utiliza para convertir la lista en una sola cadena //objeto de la clase string, no de la clase list
-
-
-***** Indices *****
-
-los indices indican la posicion de un elemento en una lista o en una cadena
-para conocer el indice de un elemento su puede usar el objeto .index()
-el cual devuelve la posiscion en donde esta ubicadao ese elemento
-P/e: 
-list_vocales[a,e,i,o,u]
-lista_vocales.index("e")	esto devuelve la posicion = 1
-
-para conocer que elemeto esta en la posicion se utiliza la siguiente sintaxis
-P/e:
-list_vocales[3]		nos devuelve = o
-
-se puede utilizar posiciones negativas 
-P/e:
-lista_vocales[-1]	nos devuelve = u
-
-
-** palabra reservada del **
-
-Esto elimina variables
-vocales = "aeiou"
-vocales_list = list(vocales)
-//['a','e','i','o','u']
-
-si queremos borrar una variable o elementos de una lista utilizamos (del)
-P/e:
-del vocales
-del vocales_list[0]
-//no se puede modificar el valor de una cadena
-
-
-					***** PALABRA IN *****
-
-esta palabra reservada nos devuelve verdadero y falso, corrobora que exista un elemento en la lista o en la cadena
-"a" in vocales	=>	nos devuelve True
-"a" in vocales_list =>	nos devuelve True
-
-se puede utilizar la palabra reservada (not) para corroborar que no exista el elemento, tambien devuelve un verdadero o un falso
-"a" not vocales =>	nos devulve un False
-"z" not vocales => 	nos devuelve un True
 
 
 
