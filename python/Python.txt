@@ -342,6 +342,7 @@ diccionario['llave'] = 'nuevo_valor'		-> para cambiar los valores del diccionari
 diccionario['nueva_llave'] = 'valor'		-> agregar valores al diccionario
 diccionario.pop('llave') 					-> eliminar un elemento del diccionario
 diccionario.popitem() 						-> se elimona el ultimo elemento agregado
+diccionario.items()							-> devuelve los pares clave-valor del diccionario
 diccionario.copy() 							-> copiamos el diccionario
 diccionario.clear()							-> limpiamos todo el diccionario
 del diccionario['valor']					-> eliminamos el valor del diccionario
@@ -360,7 +361,8 @@ dict = {
 
 
 ** Tuplas **
-Las tuplas una vez creadas no se pueden modificar
+
+> Las tuplas una vez creadas no se pueden modificar
 
 tupla = ('valor1', 'valor2', 'valor3', ...)
 
@@ -372,13 +374,31 @@ lista_tupla = list(tupla)						-> para poder alterar la tupla se debe convertir 
 
 
 ** Entornos Virtuales **
+
 py -m venv nombre_venv							-> creamos un ambiente virtual
 .\venv\Script\activate							-> activamos el entrono virtual en windows
 source venv/bin/activate						-> activamos el entorno virtual en linux y MacOs
 deactivate										-> desactivamos el entrono virtual
 
+pip freeze										-> muestra los modulos instalados en el entorno virtual
+pip install paquete								-> instalamos un modulo o paquete
+pip freeze > requirements.txt					-> mandamos a un archivo de texto plano los paquetes intalados, asi se pueden compartir
+pip install -r requirements.txt					-> instalamos los paquetes que estan en el archivo de paquetes
 
 
+** List comprehensions **
+>>> se utiliza para generar nuevas listas
+
+[elemento for elemento in iterable if condicion]		-> sintaxis de una list comprehensions
+
+
+** Diccionarios comprehensions **
+>>> se utiliza para generar nuevos diccionarios
+
+{llave:valor for elemento in iterable if condicion}		-> sintaxis para un diccionario comprehensions 
+
+
+** funciones anonimas / lambdas **
 
 
 
