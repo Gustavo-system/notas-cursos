@@ -399,9 +399,27 @@ pip install -r requirements.txt					-> instalamos los paquetes que estan en el a
 
 
 ** funciones anonimas / lambdas **
+>>> son funciones sin nombre (no tienen un identificador), puede tener los argumantos que necesites, pero solo en una linea de codigo es decir una sola expresión
+
+variable = lambda argumentos: expresion
 
 
+** Funciones de orden superior **
+>>> reciben como parametros otras funciones
 
+== filter ==
+>>> rebibe dos parametros, una funcion y un parametro iterable, esto retorna un iterados
+variable = list( filter( lambda, list ) )
+
+== map ==
+>>> rebibe dos parametros, una funcion y un parametro iterable
+variable = list( map( lambda, list ) )
+
+== reduce ==
+>>> rebibe dos parametros, una funcion y un parametro iterable
+>>> se tiene que importar de functools
+
+variable = reduce( lambda, list )
 
 
 
