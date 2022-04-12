@@ -423,55 +423,71 @@ variable = reduce( lambda, list )
 
 
 
+** EXEPCIONES **
+>>> se utiizan para no generar errores y terminar el programa tan abuptamente
+
+raise TipoError('mensaje')					-> se maneja un error que sabemos que esta mal pero no ejecuta un error explicito
+
+try:
+
+	raise TipoError('mensaje')
+	bloque de codigo
+
+except TipoError as alias_error:
+	bloque de codigo
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					
-					***** EXEPCIONES *****
-se utiizan para no generar errores y terminar el programa tan abuptamente
 try:
 	bloque de codigo
-except error:
+except TipoError:
 	bloque de codigo
 else:
 	bloque de codigo
+
+
+try:
+	bloque de codigo
+except TipoError:
+	bloque de codigo
+finally:
+	bloque de codigo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 					***** POO *****
