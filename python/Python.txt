@@ -453,12 +453,9 @@ finally:
 	bloque de codigo
 
 
-<<<<<<< HEAD
 === assert ===
 
 assert condicion , mensaje de error		-> si no se cumple la condicion muestra el mensaje de error, una forma más de cachar los errores, reducioendo en algunas ocaciones el try-except
-=======
->>>>>>> 2bcc855f4566d50753320b0b747d9b63a1b647fe
 
 
 
