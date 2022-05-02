@@ -458,6 +458,21 @@ finally:
 assert condicion , mensaje de error		-> si no se cumple la condicion muestra el mensaje de error, una forma más de cachar los errores, reducioendo en algunas ocaciones el try-except
 
 
+** Scope **
+z:int = 2				-> global scope
+
+def run():
+	z:int = 1 			-> local scope
+
+
+** Closures **
+Las variables de orden superior son recordadas por ordenes inferiores
+
+
+** Decoradores **
+Funcion que recibe como parametro otra funcion y le añade cosas y retorna uan funcion diferente
+
+
 
 
 
