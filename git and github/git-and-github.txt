@@ -64,8 +64,8 @@ git pull origin <rama> --allow-unrelated-histories  -> forzar a fucionar cambios
 
 Ramas
 
-git branch                                          -> muestra todas las ramas existentes
-git branch -m <nombre_rama>                         -> poner el nombre a la rama que se crea
+git branch                                          -> muestra todas las ramas locales y la rama en la que estamos trabajando
+git branch -m <rama> <nombre>                       -> cambiar el nombre de una rama
 git branch <nombre_rama>                            -> creamos una rama
 git branch -D <nombre_rama>                         -> eliminamos un rama
 git branch -r                                       -> nos muestra las ramas remotas
@@ -73,7 +73,7 @@ git branch -a                                       -> nos muestra todas las ram
 git show-branch                                     -> muestra las ramas que existen y su historia
 git show-branch --all                               -> muestra toda la historia de la rama
 git push origin <nombre_rama>                       -> mandamos al repositorio remoto nuestra rama local
-git push origin --delete nombre_rama                -> eliminar ramas remotas
+git push origin --delete <nombre_rama>              -> eliminar ramas remotas
 
 
 gitk                                                -> interfas de git local
