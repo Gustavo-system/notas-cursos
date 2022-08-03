@@ -7,17 +7,20 @@ git --version                                       -> saber la version de git q
 git config                                          -> muestra toda la configuracion del entrono
 git config --list                                   -> muestra la configuracion por defecto
 git config --list --show-origin                     -> muestra la configuracion del respositorio guardadas
-git config --global -e                              -> muestra la configuracion global
+git config --global -e                              -> muestra la configuracion global y se puede modificar las variables
 git config --global user.name <"name">              -> agrega un usuario
 git config --global user.email <"email">            -> agregar un correo al usuario o cambiar el email
 git config --global init.defaultBranch <name>       -> cambiar el nombre de la rama por default cuando se crea el repo "master -> main"
+git config --global alias.<tu_comando> <comando>    -> se crea un alias de los comandos, de forma personalizada
+git config --global alias.<tu_comando> <"comando">  -> si el comando tiene espacios se debe de poner entre comillas dobles el comando
 
-
-
-Comandos basicos
+* Comandos basicos *
 
 git init                                            -> inicia un repositorio
+
 git status                                          -> conocer el estatus de los archivo
+git status --short                                  -> muestra de forma breve el estado del archivo
+
 git add <archivo>                                   -> agregar un archivo al repositorio
 git add .                                           -> agregar todos los archivos modificados al respositorio
 
@@ -35,6 +38,7 @@ git log --stat                                      -> se muestran los combios e
 git log --all                                       -> mustra todo lo que ha ocurrido en todo el repositorio y ramas
 git log --all --graph                               -> muestra la historia con una rayitas de como se han fucionado las ramas
 git log --all --graph --decorate --oneline          -> muestra como se han fucionado las ramas de forma más presisa
+git log --oneline                                   -> se muestra de forma corta el commit, solo con el hashcommit y la descripcion
 
 git show <archivo>                                  -> muestra los cambios que se hicieron en el archivo
 git diff <commitA> <commitB>                        -> muestra la comparativa entre los dos archivos (influye el orden de los commits para saver la comparativa)
@@ -62,7 +66,7 @@ git pull origin <rama> --allow-unrelated-histories  -> forzar a fucionar cambios
 
 
 
-Ramas
+* Ramas *
 
 git branch                                          -> muestra todas las ramas locales y la rama en la que estamos trabajando
 git branch -m <rama> <nombre>                       -> cambiar el nombre de una rama
@@ -80,13 +84,13 @@ gitk                                                -> interfas de git local
 .gitkeep                                            -> se crea este archivo para los direcctorios vacios y puedan ser tomados en cuenta por git
 
 
-Merge
+* Merge *
 > cambiar a la rama master ya que es la rama principal antes de hacer un merge
 
 git merge nombre_rama "mensaje"                     -> fucionamos las ramas y se debe agrega un mensaje
 
 
-Conflictos
+* Conflictos *
 > se hace un merge y mostrara los errores de las lineas que son afectadas
 > se puede eliminar las lineas que generen el error de forma manual, posteriormente se debe realizar un commit
 
