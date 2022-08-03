@@ -13,6 +13,7 @@ git config --global user.email <"email">            -> agregar un correo al usua
 git config --global init.defaultBranch <name>       -> cambiar el nombre de la rama por default cuando se crea el repo "master -> main"
 git config --global alias.<tu_comando> <comando>    -> se crea un alias de los comandos, de forma personalizada
 git config --global alias.<tu_comando> <"comando">  -> si el comando tiene espacios se debe de poner entre comillas dobles el comando
+git config core.autocrlf true                       -> corregir warning de saltos de linea en windows
 
 * Comandos basicos *
 
@@ -23,6 +24,8 @@ git status --short                                  -> muestra de forma breve el
 
 git add <archivo>                                   -> agregar un archivo al repositorio
 git add .                                           -> agregar todos los archivos modificados al respositorio
+git add <carpeta/>                                  -> agregar una carpeta con sus archivos
+git add <carpeta/archivo.extencion>                 -> agregar un archivo de cierta carpeta
 
 git rm <archivo>                                    -> remover un archivo del repositorio
 git rm --cached <archivo>                           -> remover un archivo de cache (vuelve al estado inicial fuera del status)
@@ -31,6 +34,9 @@ giy rm --force <archivo>                            -> elimina los archivos de g
 
 git commit -m <"mensaje">                           -> agregar un comentario de los cambios realizados
 git commit -am <"mensaje">                          -> hace el commit y el add de los cambios (solo si ya estan agregados los archivos previamente)
+git commit --amend                                  -> se cambia el comentario del commit anterior abriendo un editor
+git commit --amend -m <"mensaje">                   -> se cambia el comentario sin abrir el editor
+
 
 git log                                             -> ver historia del repositorio
 git log <archivo>                                   -> muestra toda la historia del archivo
@@ -41,27 +47,34 @@ git log --all --graph --decorate --oneline          -> muestra como se han fucio
 git log --oneline                                   -> se muestra de forma corta el commit, solo con el hashcommit y la descripcion
 
 git show <archivo>                                  -> muestra los cambios que se hicieron en el archivo
-git diff <commitA> <commitB>                        -> muestra la comparativa entre los dos archivos (influye el orden de los commits para saver la comparativa)
+
+git diff <commitA> <commitB>                        -> muestra la comparativa entre los dos archivos (influye el orden de los commits)
+git diff --staged <commitA> <commitB>               -> muestra la comparativa pero de los cambios en staged
 
 git reset <archivo>                                 -> elimina un archivo del stach
 git reset <version>                                 -> revertir cambios
 git reset <version> --hard                          -> revertir cambios sin imporatar que haga
 git reset HEAD                                      -> sacamos los archivos de memoria pero no se borran y se tienen que agregar de nuevo
 git reset <version> --soft                          -> revertir cambios pero los anteriores archivos agregados se mantienen
+git reset --soft HEAD^                              -> movernos un commit antes de HEAD, para agregar cambios olvidados
+git reset --hard origin/<rama>                      -> hacer que la rama remota sea el nuevo HEAD quitando todos los cambios
 
 git checkout                                        -> traer cambios hechos por otra persona en una rama
 git checkout -- .                                   -> reconstruye todos los archivos segun el ultimo commit
-git checkout <nombre_rama>                          -> cambiamos de rama (si no se hace un add y un commit, cuando se cambia de rama se pierde todo lo modificado)
+git checkout <nombre_rama>                          -> cambiamos de rama (si no se hace add y commit, cuando se cambia de rama se pierde todo lo modificado)
 git checkout -b <nombre_rama>                       -> crea una rama y hace checkout de la rama
 git checkout commit <archivo>                       -> regresa un archivo al commit solicitado
 git checkout master <archivo>                       -> regresamos a la ultima version
 
 git clone <url>                                     -> clonamos todo lo que esta en el repositorio remoto
-git push                                            -> se manda el head al servidor remoto
-git fetch                                           -> nos trae actualizaciones deñ servidor remoto
-git merge                                           -> fucionar las versiones que se bajaron con el fetch
-git pull                                            -> traemos y actualizamos nuestros archivos
 
+git push                                            -> se manda el head al servidor remoto
+
+git fetch                                           -> nos trae actualizaciones deñ servidor remoto
+
+git merge                                           -> fucionar las versiones que se bajaron con el fetch
+
+git pull                                            -> traemos y actualizamos nuestros archivos
 git pull origin <rama> --allow-unrelated-histories  -> forzar a fucionar cambios del repositorio con nuestro local
 
 
@@ -156,8 +169,7 @@ Cherry-pick
 git cherry-pick hash_commit                         -> traer un commit de una rama al master (cuando aun no se termina)
 
 
-Comandos de emergencia 
-git commit --amend                                  -> agrega los cambios nuevos al commit anterior
+Comandos de emergencia
 git reflog                                          -> se encuentra todo los cambios que se han hecho absolutamente todo
 git reset --SOFT                                    -> resetea todo pero te mantiene los cambios en stalling
 git reset --HARD hash_posicio                       -> resetea todo todo todo 
