@@ -37,7 +37,6 @@ git commit -am <"mensaje">                          -> hace el commit y el add d
 git commit --amend                                  -> se cambia el comentario del commit anterior abriendo un editor
 git commit --amend -m <"mensaje">                   -> se cambia el comentario sin abrir el editor
 
-
 git log                                             -> ver historia del repositorio
 git log <archivo>                                   -> muestra toda la historia del archivo
 git log --stat                                      -> se muestran los combios en la consola junto a los logs
@@ -58,6 +57,10 @@ git reset HEAD                                      -> sacamos los archivos de m
 git reset <version> --soft                          -> revertir cambios pero los anteriores archivos agregados se mantienen
 git reset --soft HEAD^                              -> movernos un commit antes de HEAD, para agregar cambios olvidados
 git reset --hard origin/<rama>                      -> hacer que la rama remota sea el nuevo HEAD quitando todos los cambios
+git reset --mixed <hascommit>                       -> saca todos los commits realizados posteriormente y los pone en el staged
+git reset --hard <hashcommit>                       -> revierte todos los cambios hasta ese hash commit
+
+git reflog                                          -> muestra toda la historia que se realizo en el repositorio (todos)
 
 git checkout                                        -> traer cambios hechos por otra persona en una rama
 git checkout -- .                                   -> reconstruye todos los archivos segun el ultimo commit
@@ -167,12 +170,6 @@ git clean -f                                        -> se borraon lo archivo
 
 Cherry-pick
 git cherry-pick hash_commit                         -> traer un commit de una rama al master (cuando aun no se termina)
-
-
-Comandos de emergencia
-git reflog                                          -> se encuentra todo los cambios que se han hecho absolutamente todo
-git reset --SOFT                                    -> resetea todo pero te mantiene los cambios en stalling
-git reset --HARD hash_posicio                       -> resetea todo todo todo 
 
 
 Buscar
