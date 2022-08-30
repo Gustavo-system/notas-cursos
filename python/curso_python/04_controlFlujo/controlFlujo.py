@@ -10,6 +10,8 @@ mayor que       >
 menos que       <
 mayor igual     >=
 menor igual     <=
+incremento      +=
+decremento      -=
 
 
 sintaxis:
