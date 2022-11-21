@@ -132,7 +132,7 @@ Se utilizan para documentacion breve del codigo que se esta escribiendo con el f
 # Comentario de una sola linea
 
 """
-	Comentario multilinea
+Comentario multilinea
 """
 ```
 
@@ -171,6 +171,7 @@ text[0:3] 					#Recortamos el texto del indice 0, al indice 3
 texto[1:7:2] 				#Recortamos el texto del indice 1 al indice 7 en pasos de 2 en 2
 texto.find('ex')			#Busca un determinado caracter
 '_'.join(texto)				#Unir texto
+
 ```
 
 ## Conversiones
@@ -203,37 +204,59 @@ Se utiliza el metodo input(), dentro de sus parentecis se proporciona el mensaje
 variable = input('texto que indica que valor debe ingresar')
 ```
 
+---
+
 ## Estructuras de control
+
+---
 
 Nos ayudan a saber que camino tomara nuestro flujo del programa
 
-== Estructura basica de IF ==
+### Sentencia if else
 
+La sentencia if nos permite evaluar una condicion, en caso de que esta se cumpla entra a un bloque de codigo determinado en donde podemos continuar con el flujo de codigo que se requiere.
+
+-   sintaxis base del if:
+
+```
 if valor operedor valor:
-bloque de codigo
+	# bloque de codigo
 elif condicion:
-bloque de codigo
+	# bloque de codigo
 else:
-bloque de codigo
+	# bloque de codigo
+```
 
-== IF anidados ==
+### if anidados
 
+Se pueden encadenar sentencias if segun las respectivas evaluacion que se deseen realizar, "hay que tener en cuanta la identacion del codigo".
+
+```
 if valor operador valor
-bloque de codigo
-if valor operador valor
-bloque de codigo
+	# bloque de codigo
+	if valor operador valor
+		# bloque de codigo
+	else:
+		# bloque de codigo
 else:
-bloque de codigo
-else:
-bloque de codigo
+	# bloque de codigo
+```
 
-== IF corto ==
+### if corto
 
-if condicion: bloque de codigo else: bloque de codigo
+Tambien conocido como operador ternario que nos permite hacer evaluaciones de una sola linea con alguna condicion en particular
 
-** CICLOS / LOOPS **
+```
+variable = valor if: condicion else: valor
 
-> > > Nos ayuda a repetir codigo un sierto tipo de veces, existen dos tipos de ciclos while y for
+#ejemplo
+es_bonito = True
+estado = "Es bonito" if es_bonito else "No es bonito"
+```
+
+## CICLOS / LOOPS
+
+Nos ayuda a repetir codigo un sierto tipo de veces, existen dos tipos de ciclos while y for
 
 == Sintaxis basica WHILE ==
 
@@ -334,11 +357,15 @@ del list[0] -> elimina la posicion que se le indique de la lista
 
 ---
 
-**\*** ESTRUCTURAS DE DATOS **\***
+ESTRUCTURAS DE DATOS
+
+---
 
 ---
 
 ** Listas / Array **
+
+---
 
 [valor1, valor2, valor3,...] -> nombrelista = [1,2,3,4,5]
 
