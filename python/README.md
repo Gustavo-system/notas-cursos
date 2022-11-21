@@ -132,7 +132,7 @@ Se utilizan para documentacion breve del codigo que se esta escribiendo con el f
 # Comentario de una sola linea
 
 """
-	Comentario miltilinea
+	Comentario multilinea
 """
 ```
 
@@ -152,18 +152,26 @@ nuevo_valor = f'texto { variable }'
 
 ## Manipulacion de cadenas de carateres
 
-print (variable \* 3) -> GustavoGustavoGustavo
+Metodos que nos permiten manipular un string, apesar que es un tipo de dato innmutable, nos permite modificarlo en tiempo de ejecucion sin cambiar su verdadero valor.
 
-texto.upper() -> convierte en mayusculas el texto
-texto.capitalize() -> convierte la primera letra en mayuscula
-texto.strip() -> borra espacios al incio y al final de la cadena
-texto.replace('', '') -> remplasa el primer parametro por el parametro dos
-texto[posicion] -> retorna la letra que este en la posicion indicada en el texto
-len(texto) -> nos indica la longitud del texto
+```
+texto = "hola"
 
-texto[::-1] -> voltear un string
-text[0:3] -> recortamos texto 0 = al indice inicial, 3 = elemento final
-texto[1:7:2] -> recortamos el texto del indice 1 al indice 7 en pasos de 2 en 2
+print(texto * 3) 			#HolaHolaHola
+texto.upper() 				#Convierte en mayusculas el texto
+texto.lower()				#Convierte en minusculas el texto
+texto.capitalize()			#Convierte la primera letra en mayuscula
+texto.strip()				#Borra espacios al incio y al final de la cadena
+texto.replace('', '') 		#Remplasa el primer parametro por el parametro dos
+texto.split('valor')		#Separa el texto por el caracter indicado entre los parentesis
+texto[posicion] 			#Retorna la letra que este en la posicion indicada en el texto
+len(texto) 					#Nos indica la longitud del texto
+texto[::-1] 				#Voltear un string
+text[0:3] 					#Recortamos el texto del indice 0, al indice 3
+texto[1:7:2] 				#Recortamos el texto del indice 1 al indice 7 en pasos de 2 en 2
+texto.find('ex')			#Busca un determinado caracter
+'_'.join(texto)				#Unir texto
+```
 
 ## Conversiones
 
