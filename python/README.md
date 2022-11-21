@@ -258,66 +258,177 @@ estado = "Es bonito" if es_bonito else "No es bonito"
 
 Nos ayuda a repetir codigo un sierto tipo de veces, existen dos tipos de ciclos while y for
 
-== Sintaxis basica WHILE ==
+### while
 
+es un ciclo que nos permite ejecutar un bloque de codigo de acuerdo a alguna condicion, hay que tener en cuanta que se puede volver un bucle infinito si nunca se cumple esa condicion.
+
+```
 while condicion:
-bloque de codigo
-condicion a cumplir
+	#bloque de codigo
 
-== Sintaxis de FOR ==
+#ejemplo
+i = 1
+while i <= 3:
+    print(i)
+    i += 1
+print("Programa terminado")
+```
 
-for variable_referencia in list/dict:
-bloque de codigo
+### for
+
+Es un ciclo que se repite con un limite ya definido, dentro del cuerpo del ciclo se puede ejecutar la logica necesaria, comun mente se utiliza para recorrer listas, diccionarios, string en algunos casos.
+
+Sintaxis basica del bucle:
+
+```
+for iterador in iterado:
+	#bloque de codigo
+```
+
+Podemos agregar un else para indicar que pasa en caso de que no se realize la logica dentro del ciclo.
+
+```
+for iterador in iterado:
+	#bloque de codigo
 else:
-bloque de codigo
+	#bloque de codigo
+```
 
-** Break **
+#### \* Break \*
 
-> > > La palabra reservada break, rompe el ciclo cuando se cumple la condicion
+La palabra reservada break, rompe el ciclo cuando se cumple la condicion
 
+```
+for iterador in iterado:
+	if condicion:
+		break
+
+#ejemplo
 list_numero = [1,2,3,4,5,6,7,8,9,10]
 
 for numero in list_numero:
-if numero > 5: -> esto nos devuelve el valor del 1 al 5 sin ejecutar mas
-break
-print (numero)
+	if numero > 5:
+		break
+	print(numero)
+```
 
-** Continue **
+#### \* Continue \*
 
-> > > la palabra reservada continue no para el ciclo solo salta el valor seleccionado
+la palabra reservada continue no para el ciclo solo salta el valor indicado segun la condicion
+
+```
+for numero in list_numero:
+	if condicion:
+		continue
+
+#ejemplo
+list_numero = [1,2,3,4,5,6,7,8,9,10]
 
 for numero in list_numero:
-if numero == 5:
-continue -> esto nos muestra todos los numero del 1 al 10 menos el 5
-print (numero)
+	if numero == 5:
+		continue
+	print(numero)
+```
 
-** Rango **
+### Rango
 
-> > > nos permiten tener muchos lementos desde un numero inicial hasta un numero final que nosotros le proporcionamos
+nos permiten tener muchos lementos desde un numero inicial hasta un numero final que nosotros le proporcionamos
 
-rango = rango(6) -> nos devuelve rango(0,6) en una lista
+```
+for i in range(0, 10):
+	print(i)
+```
 
-** Funciones **
+---
 
-> > > para llamar a una funcion se escribe el nombre de la funcion seguido de parentesis
-> > > para declarar una funcion se utiliza la palabra reservada "def"
+## Funciones
 
-nombreFuncion() -> funcion sin parametros
-nombreFuncion(parametros) -> funcion con parametros
+---
 
-> > > Declaracion de funciones
+Son bloques de codigo que nos permiten reutilizarlos la cantidad de veces que sea necesario ya que envuelven la logica de alguna funcionalidad en especifico que se usa a lo largo de todo el programa.
 
-def nombreFuncion(): -> funcion sin parametros
-bloque de codigo
+-   Para declarar una funcion se utiliza la palabra reservada "def"
+-   Para llamar a una funcion se escribe el nombre de la funcion seguido de parentesis.
+-   Se utiliza la palabra reservada "pass" para que la funcion se pueda declarar pero sin ejecutar alguna logica
+-   Las funciones pueden retornar o no un valor utilizando la palabra reservada "return"
+-   Se debe tomar en cuanta la posicion de cada argumento que se le pase a la funcion en la invocacion
+-   Python no es tipado pero como referencia se le puse poner el tipo de dato en la declaracion de la funcio
 
-def nombreFuncion(parametros): -> funcion con parametros
-bloque de codigo
+### funciones sin parametros
 
-def nombreFuncion(\*argumento) -> los argumentos son variables y se imprimen como una tupla
-bloque de codigo
+```
+# declaracion
+def funcion_sin_parametros():
+	pass
 
-def nombrefuncion(\*\*kbargs) -> funciones como diccionario
-bloque de codigo
+# invocacion
+funcion_sin_parametros()
+```
+
+### funciones con parametros
+
+```
+# declaracion
+def funcion_parametros(parametro1, parametro2, parametro3):
+	pass
+
+# invocacion
+funcion_parametros(10, 20, 50)
+```
+
+### funciones con parametros opcionales
+
+Se manda por parametro con un \* el nombre por cual accederemos a cada uno de los N parametros que se manden con su indice
+
+```
+# declaracion
+def funcion_parametros_opcionales(*nombres):
+	print(f"\nhola compañeros {nombres}")
+    print(f"\nhola compañero {nombres[0]}")
+    print(f"\nhola compañera {nombres[1]}")
+
+# invocacion
+funcion_parametros_opcionales('Lalo', 'Ana', 'Chanchito feliz')
+```
+
+### funciones inteligentes
+
+Se les conoce asi debido a que se le pueden mandar por referencia el valor, sin tomar en cuanta la posicion de los valores
+
+```
+# declaracion
+def funcion_inteligente(apellido:str, nombre:str):
+    print("\n" + nombre, apellido)
+
+# invocacion
+funcion_inteligente(nombre='Chanchito', apellido='feliz')
+```
+
+### funcion mas inteligente
+
+Esta funcion hace la convinacion de la funcionalidad de los parametros opcionales con la funcion inteligente, pasando el valor por medio de una key en su invocacion y en la declaracion se accede por medio de esa misma key
+
+```
+# declaracion
+def funcion_inteligente_dos(**kwargs):
+    print("\n" + kwargs['nombre'], kwargs['apellido'])
+
+# invocacion
+funcion_inteligente_dos(nombre='Chanchito', apellido='super feliz')
+```
+
+### funcion con valores por default
+
+En esta funcion se declaran los paramtetros que recibe, sin embargo cuando se invoca no es necesario pasarle los valores como lo seria en otras funciones que no tienen un valor definido previamente
+
+```
+# declaracion con parametros con valor default
+def funcion_valor_default(nombre:str = 'chanchito'):
+	print(f"\nTu nombre es: {nombre}\n")
+
+# invocacion, no es necesario pasar el argumento a la funcion
+funcion_valor_defoult("Borreguito Feliz")
+```
 
 ** Indices **
 
@@ -361,11 +472,7 @@ ESTRUCTURAS DE DATOS
 
 ---
 
----
-
 ** Listas / Array **
-
----
 
 [valor1, valor2, valor3,...] -> nombrelista = [1,2,3,4,5]
 
