@@ -123,6 +123,7 @@ PI = 3.1416
 
 -   y = and
 -   o = or
+-   no = not
 
 ## Comentarios
 
