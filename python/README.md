@@ -254,7 +254,7 @@ es_bonito = True
 estado = "Es bonito" if es_bonito else "No es bonito"
 ```
 
-## CICLOS / LOOPS
+## Ciclos / Loops
 
 Nos ayuda a repetir codigo un sierto tipo de veces, existen dos tipos de ciclos while y for
 
@@ -294,7 +294,7 @@ else:
 	#bloque de codigo
 ```
 
-#### \* Break \*
+#### \* break \*
 
 La palabra reservada break, rompe el ciclo cuando se cumple la condicion
 
@@ -312,7 +312,7 @@ for numero in list_numero:
 	print(numero)
 ```
 
-#### \* Continue \*
+#### \* continue \*
 
 la palabra reservada continue no para el ciclo solo salta el valor indicado segun la condicion
 
@@ -332,11 +332,33 @@ for numero in list_numero:
 
 ### Rango
 
-nos permiten tener muchos lementos desde un numero inicial hasta un numero final que nosotros le proporcionamos
+Nos permiten tener muchos lementos desde un numero inicial hasta un numero final que nosotros le proporcionamos
 
 ```
 for i in range(0, 10):
 	print(i)
+```
+
+### Indices
+
+Los indices indican la posicion de un elemento en una lista o en una cadena para conocer el indice de un elemento su puede usar el objeto .index() el cual devuelve la posiscion en donde esta ubicadao ese elemento
+
+```
+list_vocales[a,e,i,o,u]
+
+lista_vocales.index("e") -> esto devuelve la posicion = 1
+```
+
+para conocer que elemento esta en la posicion se utiliza la siguiente sintaxis
+
+```
+list_vocales[3]		# nos devuelve = o
+```
+
+se puede utilizar posiciones negativas
+
+```
+lista_vocales[-1]	# nos devuelve = u
 ```
 
 ---
@@ -354,7 +376,7 @@ Son bloques de codigo que nos permiten reutilizarlos la cantidad de veces que se
 -   Se debe tomar en cuanta la posicion de cada argumento que se le pase a la funcion en la invocacion
 -   Python no es tipado pero como referencia se le puse poner el tipo de dato en la declaracion de la funcio
 
-### funciones sin parametros
+### Funciones sin parametros
 
 ```
 # declaracion
@@ -365,7 +387,7 @@ def funcion_sin_parametros():
 funcion_sin_parametros()
 ```
 
-### funciones con parametros
+### Funciones con parametros
 
 ```
 # declaracion
@@ -376,7 +398,7 @@ def funcion_parametros(parametro1, parametro2, parametro3):
 funcion_parametros(10, 20, 50)
 ```
 
-### funciones con parametros opcionales
+### Funciones con parametros opcionales
 
 Se manda por parametro con un \* el nombre por cual accederemos a cada uno de los N parametros que se manden con su indice
 
@@ -391,7 +413,7 @@ def funcion_parametros_opcionales(*nombres):
 funcion_parametros_opcionales('Lalo', 'Ana', 'Chanchito feliz')
 ```
 
-### funciones inteligentes
+### Funciones inteligentes
 
 Se les conoce asi debido a que se le pueden mandar por referencia el valor, sin tomar en cuanta la posicion de los valores
 
@@ -404,7 +426,7 @@ def funcion_inteligente(apellido:str, nombre:str):
 funcion_inteligente(nombre='Chanchito', apellido='feliz')
 ```
 
-### funcion mas inteligente
+### Funcion mas inteligente
 
 Esta funcion hace la convinacion de la funcionalidad de los parametros opcionales con la funcion inteligente, pasando el valor por medio de una key en su invocacion y en la declaracion se accede por medio de esa misma key
 
@@ -417,7 +439,7 @@ def funcion_inteligente_dos(**kwargs):
 funcion_inteligente_dos(nombre='Chanchito', apellido='super feliz')
 ```
 
-### funcion con valores por default
+### Funcion con valores por default
 
 En esta funcion se declaran los paramtetros que recibe, sin embargo cuando se invoca no es necesario pasarle los valores como lo seria en otras funciones que no tienen un valor definido previamente
 
@@ -430,62 +452,44 @@ def funcion_valor_default(nombre:str = 'chanchito'):
 funcion_valor_defoult("Borreguito Feliz")
 ```
 
-** Indices **
-
-> > >     Los indices indican la posicion de un elemento en una lista o en una cadena
-
-    para conocer el indice de un elemento su puede usar el objeto .index()
-    el cual devuelve la posiscion en donde esta ubicadao ese elemento
-
-list_vocales[a,e,i,o,u]
-lista_vocales.index("e") -> esto devuelve la posicion = 1
-
-> > > para conocer que elemeto esta en la posicion se utiliza la siguiente sintaxis
-
-list_vocales[3] -> nos devuelve = o
-
-> > > se puede utilizar posiciones negativas
-> > > lista_vocales[-1] -> nos devuelve = u
-
-** palabra reservada del **
-
-> > > Esto elimina variables si queremos borrar una variable o elementos de una lista utilizamos (del)
-
-    pero no se puede modificar el valor de una cadena
-
-del variable -> elimina la variable
-del list[0] -> elimina la posicion que se le indique de la lista
-
-** PALABRA IN and NOT **
-
-> > > Esta palabra reservada nos devuelve verdadero y falso, corrobora que exista un elemento en la lista o en la cadena
-> > > letra in cadena -> nos devuelve true or false
-> > > valor in lista -> nos devuelve true or false
-
-> > > se puede utilizar la palabra reservada (not) para corroborar que no exista el elemento, tambien devuelve un verdadero o un falso
-> > > letra not cadena -> nos devuelve un true or false
-> > > valor not list -> nos devuelve un true or false
-
 ---
 
 ESTRUCTURAS DE DATOS
 
 ---
 
-** Listas / Array **
+### Listas / Array
 
-[valor1, valor2, valor3,...] -> nombrelista = [1,2,3,4,5]
+```
+# sintaxis: [valor1, valor2, valor3, ...]
 
-para agredar elementos a las listas de forma manual
+nombre_lista = [1, 2, 3, 4, 5]
+```
 
-nombreLista = nombreLista + [nuevoValor, nuevoValor,...]
-nombreLista += [nuevoValor, nuevoValor,...] -> se utiliza la suma asignacion, es forma corta de hacer lo de la linea anterior
+para agredar elementos a las listas de forma manual se puede realizar de las siguientes formas
 
-lista = [1,2,3,4,5]
-lista += [6,7] -> da como resultado [1,2,3,4,5,6,7]
+-   utilizando el operador se suma asignacion
+-   usando el operador de suma, como si se realizara una concatenacion
 
-> Para acceder al indice de una lista se incia desde el 0
-> lista[0] -> nos devuelve el valor de 1
+```
+# nombre_lista = nombre_lista + [nuevo_valor, nuevo_valor,...]
+# nombre_lista += [nuevo_valor, nuevo_valor,...]
+
+lista = [1, 2, 3, 4, 5]
+
+lista += [6, 7]
+
+print(lista)					# [1,2,3,4,5,6,7]
+
+```
+
+Para acceder al indice de una lista se incia desde el 0
+
+```
+lista[0]						# nos devuelve el valor de 1
+
+lista[1]						# nos devuelve el valor de 2
+```
 
 == metodos disponibles en las listas ==
 
@@ -631,6 +635,25 @@ bloque de codigo
 
 assert condicion , mensaje de error -> si no se cumple la condicion muestra el mensaje de error, una forma más de cachar los errores, reducioendo en algunas ocaciones el try-except
 
+** palabra reservada del **
+
+> > > Esto elimina variables si queremos borrar una variable o elementos de una lista utilizamos (del)
+
+    pero no se puede modificar el valor de una cadena
+
+del variable -> elimina la variable
+del list[0] -> elimina la posicion que se le indique de la lista
+
+** PALABRA IN and NOT **
+
+> > > Esta palabra reservada nos devuelve verdadero y falso, corrobora que exista un elemento en la lista o en la cadena
+> > > letra in cadena -> nos devuelve true or false
+> > > valor in lista -> nos devuelve true or false
+
+> > > se puede utilizar la palabra reservada (not) para corroborar que no exista el elemento, tambien devuelve un verdadero o un falso
+> > > letra not cadena -> nos devuelve un true or false
+> > > valor not list -> nos devuelve un true or false
+
 ** Scope **
 z:int = 2 -> global scope
 
@@ -752,3 +775,7 @@ print('el archivo no existe')
 
 \*Para eliminar un directorio
 os.rmdir('ubicacion_archivo')
+
+```
+
+```
