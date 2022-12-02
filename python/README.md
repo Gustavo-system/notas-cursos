@@ -455,7 +455,7 @@ funcion_valor_defoult("Borreguito Feliz")
 
 ---
 
-ESTRUCTURAS DE DATOS
+## Estructuras de datos
 
 ---
 
@@ -492,78 +492,135 @@ lista[0]						# nos devuelve el valor de 1
 lista[1]						# nos devuelve el valor de 2
 ```
 
-== metodos disponibles en las listas ==
+Metodos disponibles en las listas
 
-lista.append(valor) -> .append(valor) Para agregar un valor
-lista.extend(valor1,valor2) -> .extend(valores) Para agregar multiples valores
-lista.remove(valor) -> .remove(valor) Para remover un elemento especifico
-lista.clear() -> .clear() Limpiar toda la lista
-lista.pop() -> .pop() Para eliminar el ultimo elemento
-lista.count(valor) -> .count(valor) Para contar las veces que se repite el valor indicado en la lista
-lista.reverse() -> .reverse() Ordenada de forma inversa la lista
-lista.sort() -> .sort() Ordena la lista de menor a mayor exepto si son datos de distinto tipo
-nueva_lista = lista.copy() -> .copy() Para hacer una copia exacta de la lista
-len(lista) -> len() Para saber la longitud (numero de elementos) que tiene la lista
+```
+lista.append(valor)				# Para agregar un valor
+lista.extend(valor1,valor2)		# Para agregar multiples valores
+lista.remove(valor)				# Para remover un elemento especifico
+lista.clear()					# Limpiar toda la lista
+lista.pop()						# Para eliminar el ultimo elemento
+lista.count(valor)				# Para contar las veces que se repite el valor indicado en la lista
+lista.reverse()					# Ordenada de forma inversa la lista
+lista.sort()					# Ordena la lista de menor a mayor exepto si son datos de distinto tipo
+nueva_lista = lista.copy()		# Para hacer una copia exacta de la lista
+len(lista)						# Para saber la longitud (numero de elementos) que tiene la lista
+```
 
-> > > podemos utilizar la palabra reservada (list()), sin embargo este objeto solo acepta un parametro
-> > > para poder ingresar varios valores como en una lista normal se usa la siguiente sintexis
+podemos utilizar la palabra reservada (list()), sin embargo este objeto solo acepta un parametro
+
+para poder ingresar varios valores como en una lista normal se usa la siguiente sintexis
 
 list([valor1, valor2, ...])
 
-> > > si ponemos una palabra dentro de list
+si ponemos una palabra o algun string dentro de la funcion reservada de python list() obtenemos el string en una lista separadando cada uno de los caracteres
 
-list("Gus") -> el resultado es: ['G','u','s']
+```
+list("Mascota")					# El resultado es: ['M','a','s','c','o','t','a']
+```
 
-** Diccionarios / objetos / json **
+### Diccionarios / Objetos / Json
 
+La sintaxis de los diccionarios es llave valor y accedemos a los valores de dicho diccionario por medio de su llave.
+
+```
 diccionario = {
-"llave1": "valor1",
-"llave2": "valor2",
-"llave3": "valor3",
+	"llave1": "valor1",
+	"llave2": "valor2",
+	"llave3": "valor3",
 }
+```
 
-diccionario['llave'] -> accedemos a travez de string
-diccionario.get('llave') -> se puede utilizar el metodo get para acceder a los datos
-diccionario['llave'] = 'nuevo_valor' -> para cambiar los valores del diccionario
-diccionario['nueva_llave'] = 'valor' -> agregar valores al diccionario
-diccionario.pop('llave') -> eliminar un elemento del diccionario
-diccionario.popitem() -> se elimona el ultimo elemento agregado
-diccionario.items() -> devuelve los pares clave-valor del diccionario
-diccionario.copy() -> copiamos el diccionario
-diccionario.clear() -> limpiamos todo el diccionario
-del diccionario['valor'] -> eliminamos el valor del diccionario
-len(diccionario) -> para saber la longitud del diccionario
+Los diccionarios tienen metodos propios que nos permiten manipular los datos que se alamacen dentro del diccionario.
 
-=== Diccionarios Anidados ===
+```
+diccionario['llave']					# accedemos a travez de string
+diccionario.get('llave')				# se puede utilizar el metodo get() para acceder a los datos
+diccionario['llave'] = 'nuevo_valor'	# para cambiar los valores del diccionario
+diccionario['nueva_llave'] = 'valor'	# agregar valores al diccionario
+diccionario.pop('llave')				# eliminar un elemento del diccionario
+diccionario.popitem()					# se elimona el ultimo elemento agregado
+diccionario.items()						# devuelve los pares clave-valor del diccionario
+diccionario.copy()						# copiamos el diccionario
+diccionario.clear()						# limpiamos todo el diccionario
+del diccionario['valor']				# eliminamos el valor del diccionario
+len(diccionario)						# para saber la longitud del diccionario
+```
 
-dict = {
-"llave" : {
-"llave": valor,
-"llave2": valor2,
-},
+### Diccionarios Anidados
+
+```
+diccionario = {
+	"llave" : {
+		"llave": valor,
+		"llave2": valor2,
+	}
 }
+```
 
-** Tuplas **
+### Tuplas
 
-> Las tuplas una vez creadas no se pueden modificar
+Las tuplas una vez creadas no se pueden modificar, son inmutables
 
 tupla = ('valor1', 'valor2', 'valor3', ...)
 
-tupla.count() -> numero de elementos que tiene la tupla
-tupla.index() -> devuelven la posicion del elemento ( indice del elemeto )
-lista_tupla = list(tupla) -> para poder alterar la tupla se debe convertir a una lista y usar los metodos de la lista
+```
+tupla.count()						# numero de elementos que tiene la tupla
+tupla.index()						# devuelven la posicion del elemento ( indice del elemeto )
+lista_tupla = list(tupla)			# para poder alterar la tupla se debe convertir a una lista y usar los metodos de la lista
+```
 
-** Entornos Virtuales **
+### Sets
 
-py -m venv nombre_venv -> creamos un ambiente virtual
-.\venv\Script\activate -> activamos el entrono virtual en windows
-source venv/bin/activate -> activamos el entorno virtual en linux y MacOs
-deactivate -> desactivamos el entrono virtual
+---
 
-pip freeze -> muestra los modulos instalados en el entorno virtual
-pip install paquete -> instalamos un modulo o paquete
-pip freeze > requirements.txt -> mandamos a un archivo de texto plano los paquetes intalados, asi se pueden compartir
-pip install -r requirements.txt -> instalamos los paquetes que estan en el archivo de paquetes
+## Entornos Virtuales
+
+---
+
+Comandos para manipular entornos virtuales, a partir de la version de python 3 se incluyeron los entornos virtuales, el comando con la instruccion -m hace referencia al modulo interno de python.
+
+-   creamos un ambiente virtual en windows
+
+    py -m venv nombre_venv
+
+-   creamos un ambiente virtual en linux y MacOs
+
+    python3 -m venv nombre_venv
+
+-   activamos el entrono virtual en windows
+
+    .\venv\Script\activate
+
+-   activamos el entorno virtual en linux y MacOs
+
+    source venv/bin/activate
+
+-   desactivamos el entrono virtual
+
+    deactivate
+
+Se crea un archivo con extencion .txt en el cual se podran indicar todas las librerias que se requieran en el proyecto, para poder instalarlas en el entorno virtual.
+
+Para instalar las librerias indicadas primero debemos entrar a la carpeta de nuestro proyecto, como segundo paso debemos activar nuestro entorno virtual ejecutando los comandos anteriores dependiendo de nuestro sistema operativo, como tercer paso debemos ejecutar el comando que se muestra a continuacion.
+
+    pip install -r requirements.txt
+
+El nombre del archivo es indistinto, pero como normalmente lo podremos encotrar es con el nombre de "requirements.txt"
+
+Nota: Algunas veces nuestro pip se encuentra desactualizado y en la consola nos indicara que se debe actualizar, mismo mensaje nos proporciona el comando que se dedbe ejecutar.
+
+Una vez ejecutado dicho comando, procedemos a comprobar que las librerias se instalaron correctamente en nuestro entorno virtual, el comando a continuacion muestra los modulos instalados en el entorno virtual
+
+    pip freeze
+
+Para instalar un solo paquete se puede ejecutar el siguiente comando
+
+    pip install paquete
+
+En caso de que tengamos paquetes no registrados en el archivo de "requirements.txt" y necesitemos indicar que son necesarios para que otro desarrollador pueda tener lo mismo que nosotros, ejecutamos el siguente comando para escribir de forma rapida las librerias que tenemos instaladas en nuestro entorno virtual.
+
+    pip freeze > requirements.txt
 
 ** List comprehensions **
 
@@ -776,7 +833,3 @@ print('el archivo no existe')
 
 \*Para eliminar un directorio
 os.rmdir('ubicacion_archivo')
-
-```
-
-```
