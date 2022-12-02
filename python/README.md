@@ -477,6 +477,42 @@ def funcion_valor_default(nombre:str = 'chanchito'):
 funcion_valor_defoult("Borreguito Feliz")
 ```
 
+## Funciones anonimas / lambdas
+
+son funciones sin nombre (no tienen un identificador), puede tener los argumantos que necesites, pero solo en una linea de codigo es decir una sola expresión
+
+```
+variable = lambda argumentos: expresion
+```
+
+## Funciones de orden superior
+
+reciben como parametros otras funciones
+
+### Filter
+
+rebibe dos parametros, una funcion y un parametro iterable, esto retorna un iterados
+
+```
+variable = list( filter( lambda, list ) )
+```
+
+### Map
+
+rebibe dos parametros, una funcion y un parametro iterable
+
+```
+variable = list( map( lambda, list ) )
+```
+
+### Reduce
+
+rebibe dos parametros, una funcion y un parametro iterable se tiene que importar de "functools"
+
+```
+variable = reduce( lambda, list )
+```
+
 ---
 
 ## Estructuras de datos
@@ -535,7 +571,7 @@ podemos utilizar la palabra reservada (list()), sin embargo este objeto solo ace
 
 para poder ingresar varios valores como en una lista normal se usa la siguiente sintexis
 
-list([valor1, valor2, ...])
+    list([valor1, valor2, ...])
 
 si ponemos una palabra o algun string dentro de la funcion reservada de python list() obtenemos el string en una lista separadando cada uno de los caracteres
 
@@ -596,6 +632,72 @@ lista_tupla = list(tupla)			# para poder alterar la tupla se debe convertir a un
 
 ### Sets
 
+Los sets son una estructura de datos que nos permiten almacenar valores, los cuales no pueden ser repetidos
+
+### List comprehensions
+
+se utiliza para generar nuevas listas
+
+```
+# sintaxis de una list comprehensions
+
+[elemento for elemento in iterable if condicion]
+```
+
+### Diccionarios comprehensions
+
+se utiliza para generar nuevos diccionarios
+
+```
+# sintaxis para un diccionario comprehensions
+
+{llave:valor for elemento in iterable if condicion}
+```
+
+---
+
+## Exepciones
+
+---
+
+Se utiizan para no generar errores y terminar el programa tan abuptamente
+
+raise TipoError('mensaje') -> se maneja un error que sabemos que esta mal pero no ejecuta un error explicito
+
+```
+try:
+	raise TipoError('mensaje')
+    # bloque de codigo
+except TipoError as alias_error:
+	# bloque de codigo
+```
+
+```
+try:
+	# bloque de codigo
+except TipoError:
+	# bloque de codigo
+else:
+	# bloque de codigo
+```
+
+```
+try:
+	# bloque de codigo
+except TipoError:
+	# bloque de codigo
+finally:
+	# bloque de codigo
+```
+
+### assert
+
+si no se cumple la condicion muestra el mensaje de error, una forma más de cachar los errores, reducioendo en algunas ocaciones el try-except
+
+```
+assert condicion, mensaje de error
+```
+
 ---
 
 ## Entornos Virtuales
@@ -645,77 +747,6 @@ Para instalar un solo paquete se puede ejecutar el siguiente comando
 En caso de que tengamos paquetes no registrados en el archivo de "requirements.txt" y necesitemos indicar que son necesarios para que otro desarrollador pueda tener lo mismo que nosotros, ejecutamos el siguente comando para escribir de forma rapida las librerias que tenemos instaladas en nuestro entorno virtual.
 
     pip freeze > requirements.txt
-
-** List comprehensions **
-
-> > > se utiliza para generar nuevas listas
-
-[elemento for elemento in iterable if condicion] -> sintaxis de una list comprehensions
-
-** Diccionarios comprehensions **
-
-> > > se utiliza para generar nuevos diccionarios
-
-{llave:valor for elemento in iterable if condicion} -> sintaxis para un diccionario comprehensions
-
-** funciones anonimas / lambdas **
-
-> > > son funciones sin nombre (no tienen un identificador), puede tener los argumantos que necesites, pero solo en una linea de codigo es decir una sola expresión
-
-variable = lambda argumentos: expresion
-
-** Funciones de orden superior **
-
-> > > reciben como parametros otras funciones
-
-== filter ==
-
-> > > rebibe dos parametros, una funcion y un parametro iterable, esto retorna un iterados
-> > > variable = list( filter( lambda, list ) )
-
-== map ==
-
-> > > rebibe dos parametros, una funcion y un parametro iterable
-> > > variable = list( map( lambda, list ) )
-
-== reduce ==
-
-> > > rebibe dos parametros, una funcion y un parametro iterable
-> > > se tiene que importar de functools
-
-variable = reduce( lambda, list )
-
-** EXEPCIONES **
-
-> > > se utiizan para no generar errores y terminar el programa tan abuptamente
-
-raise TipoError('mensaje') -> se maneja un error que sabemos que esta mal pero no ejecuta un error explicito
-
-try:
-
-    raise TipoError('mensaje')
-    bloque de codigo
-
-except TipoError as alias_error:
-bloque de codigo
-
-try:
-bloque de codigo
-except TipoError:
-bloque de codigo
-else:
-bloque de codigo
-
-try:
-bloque de codigo
-except TipoError:
-bloque de codigo
-finally:
-bloque de codigo
-
-=== assert ===
-
-assert condicion , mensaje de error -> si no se cumple la condicion muestra el mensaje de error, una forma más de cachar los errores, reducioendo en algunas ocaciones el try-except
 
 ** palabra reservada del **
 
