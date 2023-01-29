@@ -272,7 +272,8 @@ else:
 Tambien conocido como operador ternario que nos permite hacer evaluaciones de una sola linea con alguna condicion en particular
 
 ```
-variable = valor if: condicion else: valor
+# sintaxis
+# variable = valor if: condicion else: valor
 
 #ejemplo
 es_bonito = True
@@ -288,8 +289,9 @@ Nos ayuda a repetir codigo un sierto tipo de veces, existen dos tipos de ciclos 
 es un ciclo que nos permite ejecutar un bloque de codigo de acuerdo a alguna condicion, hay que tener en cuanta que se puede volver un bucle infinito si nunca se cumple esa condicion.
 
 ```
-while condicion:
-	#bloque de codigo
+# sintaxis
+# while condicion:
+	# bloque de codigo
 
 #ejemplo
 i = 1
@@ -303,11 +305,10 @@ print("Programa terminado")
 
 Es un ciclo que se repite con un limite ya definido, dentro del cuerpo del ciclo se puede ejecutar la logica necesaria, comun mente se utiliza para recorrer listas, diccionarios, string en algunos casos.
 
-Sintaxis basica del bucle:
-
 ```
+# Sintaxis basica del bucle
 for iterador in iterado:
-	#bloque de codigo
+	# bloque de codigo
 ```
 
 Podemos agregar un else para indicar que pasa en caso de que no se realize la logica dentro del ciclo.
@@ -630,9 +631,13 @@ tupla.index()						# devuelven la posicion del elemento ( indice del elemeto )
 lista_tupla = list(tupla)			# para poder alterar la tupla se debe convertir a una lista y usar los metodos de la lista
 ```
 
-### Sets
+### Sets / Conjuntos
 
-Los sets son una estructura de datos que nos permiten almacenar valores, los cuales no pueden ser repetidos
+Los sets son una estructura de datos que nos permiten almacenar valores, los cuales no pueden ser repetidos y si se repitan este lo elimina
+
+```
+my_set = {'mexico', 'usa', 'argentina'}
+```
 
 ### List comprehensions
 
