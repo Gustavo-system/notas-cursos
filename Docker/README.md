@@ -138,7 +138,7 @@ docker container logs --follow CONTAINER
 
 ---
 
-## Valumenes
+## Volumes
 
 ---
 ### Hay 3 tipos de volúmenes, son usados para hacer persistente la data entre reinicios y levantamientos de imágenes.
@@ -186,6 +186,43 @@ Volúmenes donde sólo se especifica el path del contenedor y Docker lo asigna a
 
 ```
 docker run -v <ruta-contenedor>
+```
+
+---
+
+## Container Networking
+
+---
+Si dos o más contenedores están en la misma red, podrán hablar entre sí. Si no lo están, no podrán.
+
+Crear una nueva red
+```
+docker network create <coustom-name>
+```
+
+Listar todas las redes creadas
+```
+docker network ls
+```
+
+Inspeccionar una red
+```
+docker network inspect <network-name o network-id>
+```
+
+Borrar todas las redes no usadas
+```
+docker network prune
+```
+
+Borrar una o mas redes
+```
+docker network rm <network-id o ids>
+```
+
+Conectar un contenedor a una red
+```
+docker network connect <network-id> <container-id>
 ```
 
 <br>
