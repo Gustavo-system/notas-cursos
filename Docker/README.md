@@ -76,16 +76,25 @@ docker container ls -a
 Correr un contenedor:
 
 -   \-d = Corre la imagen desenlazada de la consola donde se ejecutó el comando
--   \-p = Especificar un puerto, (puerto de la computadora : puerto del conetenedor)
--   IMAGE_NAME = nombre de la imagen a usar
+-   \-p = Especificar un puerto, (puerto de la computadora : puerto del contenedor)
+-   imagen-name = nombre de la imagen a usar
 - \-e = variable de entorno (-e variable = valor)
 - \-v = volumen que se usara para el contenedor (-v volumen = ruta-contendor)
+- \--network = network que se usara para comunciarce entre dos o mas contenedores ( -n network-name)
 
 ```
-docker container run -d -p 80:80 IMAGE_NAME
+docker container run -d -p 80:80 <image-name>
+```
 
-ejemplo:
-docker container run -d -p 80:80 docker/getting-started
+- ejemplo:
+```
+docker container run \
+-d \
+-p <puerto-fisico>:<puerto-container> \
+--network <network-name> --network-alias <network-alias> \
+-v <volumen-name>:<ruta-container> \
+-e <variable>=<valor-variable> \
+<imagen>:<tag>
 ```
 
 Iniciar un contenedor previamente creado
