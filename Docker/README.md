@@ -184,11 +184,29 @@ Usar un volumen al correr un contenedor
 docker run -v <volumen-name>:<ruta-contenedor> <imagen>
 ```
 
-
-
 #### - Bind volumes - Vincular volúmenes
 Bind volumes trabaja con paths absolutos Terminal
+```
+docker run \
+-d \
+-p <puerto>:<puerto-contendor> \
+-w <directorio> \
+-v "$(pwd):<directorio>" \
+<imagen>:<tag>
+sh -c <comando-consola>
+```
 
+- ejemplo:
+
+```
+docker run \
+-d \
+-p 3000:3000 \
+-w /app \
+-v "$(pwd):/app" \
+node:18-alpine \
+sh -c "yarm install && yarn run dev"
+```
 
 #### - Anonymous Volumes
 Volúmenes donde sólo se especifica el path del contenedor y Docker lo asigna automáticamente en el host
