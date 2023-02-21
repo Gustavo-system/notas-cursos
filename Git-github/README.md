@@ -62,9 +62,9 @@ inicia un repositorio, para que los archivos puedan tener un historial
 git init
 ```
 
-### Estatus
+## Estatus
 
-conocer el estatus de los archivo, ya sean modificados o no
+conocer el estatus de los archivo
 - U = Sin seguimiento
 - M = Modificado
 - D = Eliminado
@@ -79,7 +79,7 @@ muestra de forma breve el estado del archivo
 git status --short
 ```
 
-### Agregar un archivo
+## Agregar un archivo al staging
 
 agregar un archivo al repositorio
 ```
@@ -101,7 +101,7 @@ agregar un archivo de cierta carpeta
 git add <carpeta/archivo.extencion>
 ```
 
-### Eliminar un archivo
+## Eliminar un archivo del staging
 
 remover un archivo del repositorio
 ```
