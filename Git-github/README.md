@@ -194,6 +194,16 @@ muestra los cambios que se hicieron en el archivo
 git show <archivo>
 ```
 
+muestra las ramas que existen y su historia
+```
+git show-branch
+```
+
+muestra toda la historia de la rama
+```
+git show-branch --all
+```
+
 ## Diferencias
 muestra la comparativa entre los dos archivos (influye el orden de los commits)
 ```
@@ -258,81 +268,218 @@ git reflog
 
 ## Checkout
 
-git checkout                                        -> traer cambios hechos por otra persona en una rama
-git checkout -- .                                   -> reconstruye todos los archivos segun el ultimo commit
-git checkout <nombre_rama>                          -> cambiamos de rama (si no se hace add y commit, cuando se cambia de rama se pierde todo lo modificado)
-git checkout -b <nombre_rama>                       -> crea una rama y hace checkout de la rama
-git checkout commit <archivo>                       -> regresa un archivo al commit solicitado
-git checkout master <archivo>                       -> regresamos a la ultima version
+traer cambios hechos por otra persona en una rama
+```
+git checkout
+```
 
+reconstruye todos los archivos segun el ultimo commit
+```
+git checkout -- .
+```
 
-git clone <url>                                     -> clonamos todo lo que esta en el repositorio remoto
-git fetch                                           -> nos trae actualizaciones deñ servidor remoto
-git merge                                           -> fucionar las versiones que se bajaron con el fetch
+cambiamos de rama 
+- si no se hace add y commit, cuando se cambia de rama se pierde todo lo modificado
+```
+git checkout <nombre_rama>
+```
 
+crea una rama y hace checkout de la rama
+```
+git checkout -b <nombre_rama>
+```
 
-git pull                                            -> traemos y actualizamos nuestros archivos
-git pull origin <rama> --allow-unrelated-histories  -> forzar a fucionar cambios del repositorio con nuestro local
+regresa un archivo al commit solicitado
+```
+git checkout commit <archivo>
+```
+
+regresamos a la ultima version
+```
+git checkout master <archivo>
+```
 
 ## Branch
 
-git branch                                          -> muestra todas las ramas locales y la rama en la que estamos trabajando
-git branch -m <rama> <nombre>                       -> cambiar el nombre de una rama
-git branch <nombre_rama>                            -> creamos una rama
-git branch -D <nombre_rama>                         -> eliminamos un rama
-git branch -d <nombre_rama> -f                      -> eliminamos una rama sin importar nada
-git branch -r                                       -> nos muestra las ramas remotas
-git branch -a                                       -> nos muestra todas las ramas tanto remotas como locales
-git show-branch                                     -> muestra las ramas que existen y su historia
-git show-branch --all                               -> muestra toda la historia de la rama
+muestra todas las ramas locales y la rama en la que estamos trabajando
+```
+git branch
+```
+
+cambiar el nombre de una rama
+```
+git branch -m <rama> <nombre>
+```
+
+creamos una rama
+```
+git branch <nombre-rama>
+```
+
+eliminamos un rama
+```
+git branch -D <nombre-rama>
+```
+
+eliminamos una rama sin importar nada
+```
+git branch -d <nombre-rama> -f
+```
+
+nos muestra las ramas remotas
+```
+git branch -r
+```
+
+nos muestra todas las ramas tanto remotas como locales
+```
+git branch -a
+```
+
+## Clonar un repositorio
+
+clonamos todo lo que esta en el repositorio remoto
+```
+git clone <url> 
+```
+
+## Pull and fetch
+
+nos indica si existen cambios en el repositorio remoto y los baja
+```
+git fetch
+```
+
+traemos y actualizamos nuestros archivos
+```
+git pull
+```
+
+forzar a fucionar cambios del repositorio con nuestro local
+```
+git pull origin <rama> --allow-unrelated-histories
+```
+
+
 
 ## Push
 
-git push                                            -> se manda el head al servidor remoto
-git push origin <nombre_rama>                       -> mandamos al repositorio remoto nuestra rama local
-git push origin --delete <nombre_rama>              -> eliminar ramas remotas
+se manda el head al servidor remoto
+```
+git push
+```
+
+mandamos al repositorio remoto nuestra rama local
+```
+git push origin <nombre-rama>
+```
+
+eliminar ramas remotas
+```
+git push origin --delete <nombre-rama>
+```
 
 
 ## Stash
 #### guardar los cambios de forma temporal sin hacer push
 
-git stash                                           -> agregar cambios a un entorno temporal
-git stash list                                      -> muestra los stash guardados temporalmente
-git stash pop                                       -> regresar los cambios del stash
-git stash branch <nombre_rama>                      -> colocar el stash en un rama
-git stash drop                                      -> borrar los stash
+agregar cambios a un entorno temporal
+```
+git stash
+```
 
+muestra los stash guardados temporalmente
+```
+git stash list
+```
 
-gitk                                                -> interfas de git local
-.gitkeep                                            -> se crea este archivo para los direcctorios vacios y puedan ser tomados en cuenta por git
+regresar los cambios del stash
+```
+git stash pop
+```
+
+colocar el stash en un rama
+```
+git stash branch <nombre-rama>
+```
+
+borrar los stash
+```
+git stash drop <index>
+```
+
+## Gitk and gitkeep
+
+interfas de git local
+- gitk
+
+se crea este archivo para los direcctorios vacios y puedan ser tomados en cuenta por git
+- .gitkeep
 
 
 ## Merge
 #### cambiar a la rama master ya que es la rama principal antes de hacer un merge
 
-git merge nombre_rama "mensaje"                     -> fucionamos las ramas y se debe agrega un mensaje
+fucionar las versiones que se bajaron con el fetch
+```
+git merge
+```
+
+fucionamos las ramas y se debe agrega un mensaje
+```
+git merge <rama> <mensaje>
+```
 
 
 ## Conflictos
-> - se hace un merge y mostrara los errores de las lineas que son afectadas\
-> - se puede eliminar las lineas que generen el error de forma manual, posteriormente se debe realizar un commit
+> - se hace un merge y mostrara los errores de las lineas que son afectadas
+> - se puede eliminar las lineas que generen el error de forma manual, posteriormente se debe realizar un commit despues de solucionar los conflictos
 
 ## Remote
+> Conectar con repositorio remoto
 
-Conectar con repositorio remoto
-git remote                                          -> lista el repositorio remoto al que apunta
-git remote -v                                       -> muestra el origin para hacer push y fetch
-git remote add origin url                           -> agrega el repositorio
-git remote set-url origin url                       -> cambiar la url del repositorio remoto
+lista el repositorio remoto al que apunta
+```
+git remote
+```
 
-git remote add upstream url                         -> agregamos un repositorio nuevo de donde hacer pull y push
+muestra el origin para hacer push y fetch
+```
+git remote -v
+```
+
+agrega el repositorio
+```
+git remote add origin <url>
+```
+
+cambiar la url del repositorio remoto
+```
+git remote set-url origin <url>
+```
+
+agregamos un repositorio nuevo de donde hacer pull y push
+```
+git remote add upstream <url>
+```
 
 ## SSH
+> Creacion de llaves SSH
 
-Creacion de llaves SSH
-ssh-keygen -t rsa -b 4096 -C "correo_git"           -> crear una llave ssh en la carpeta .ssh/id_rsa
-eval $(ssh-agent -s)                                -> evaluando si rdts corriengo el agente de ssh y se ejecuta de manera correcta
-ssh-add ruta_llave_privada                          -> se agrega la llave privada al ssh
+crear una llave ssh en la carpeta .ssh/id_rsa
+```
+ssh-keygen -t rsa -b 4096 -C <correo-git>
+```
+
+evaluando si rdts corriendo el agente de ssh y se ejecuta de manera correcta
+```
+eval $(ssh-agent -s)
+```
+
+se agrega la llave privada al ssh
+```
+ssh-add <ruta-llave-privada>
+```
 
 ## Tags
 
