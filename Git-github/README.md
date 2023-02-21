@@ -126,46 +126,137 @@ elimina los archivos de git y del disco duro
 git rm --force <archivo>
 ```
 
-### Commit
+## Commit
 
-git commit -m <"mensaje">                           -> agregar un comentario de los cambios realizados
-git commit -am <"mensaje">                          -> hace el commit y el add de los cambios (solo si ya estan agregados los archivos previamente)
-git commit --amend                                  -> se cambia el comentario del commit anterior abriendo un editor
-git commit --amend -m <"mensaje">                   -> se cambia el comentario sin abrir el editor
+agregar un comentario de los cambios realizados
+```
+git commit -m <mensaje>
+```
+hace el commit y el add de los cambios (solo si ya estan agregados los archivos previamente)
+```
+git commit -am <mensaje>
+```
+se cambia el comentario del commit anterior abriendo un editor
+```
+git commit --amend
+```
+se cambia el comentario sin abrir el editor
+```
+git commit --amend -m <mensaje>
+```
 
-### log
+## Log
 
-git log                                             -> ver historia del repositorio
-git log <archivo>                                   -> muestra toda la historia del archivo
-git log --stat                                      -> se muestran los combios en la consola junto a los logs
-git log --all                                       -> mustra todo lo que ha ocurrido en todo el repositorio y ramas
-git log --all --graph                               -> muestra la historia con una rayitas de como se han fucionado las ramas
-git log --all --graph --decorate --oneline          -> muestra como se han fucionado las ramas de forma más presisa
-git log --oneline                                   -> se muestra de forma corta el commit, solo con el hashcommit y la descripcion
-git log -S "palabra"                                -> buscamos la palabra en los commits realizados
+ver historia del repositorio
+```
+git log
+```
 
+muestra toda la historia del archivo
+```
+git log <archivo>
+```
 
-git show <archivo>                                  -> muestra los cambios que se hicieron en el archivo
+se muestran los combios en la consola junto a los logs
+```
+git log --stat
+```
 
+mustra todo lo que ha ocurrido en todo el repositorio y ramas
+```
+git log --all
+```
 
-git diff <commitA> <commitB>                        -> muestra la comparativa entre los dos archivos (influye el orden de los commits)
-git diff --staged <commitA> <commitB>               -> muestra la comparativa pero de los cambios en staged
+muestra la historia con algunos detalles visuales de como se han fucionado las ramas
+```
+git log --all --graph
+```
 
-### reset
+muestra como se han fucionado las ramas de forma más presisa
+```
+git log --all --graph --decorate --oneline
+```
 
-git reset <archivo>                                 -> elimina un archivo del stach
-git reset <version>                                 -> revertir cambios
-git reset <version> --hard                          -> revertir cambios sin imporatar que haga
-git reset HEAD                                      -> sacamos los archivos de memoria pero no se borran y se tienen que agregar de nuevo
-git reset <version> --soft                          -> revertir cambios pero los anteriores archivos agregados se mantienen
-git reset --soft HEAD^                              -> movernos un commit antes de HEAD, para agregar cambios olvidados
-git reset --hard origin/<rama>                      -> hacer que la rama remota sea el nuevo HEAD quitando todos los cambios
-git reset --mixed <hascommit>                       -> saca todos los commits realizados posteriormente y los pone en el staged
-git reset --hard <hashcommit>                       -> revierte todos los cambios hasta ese hash commit
+se muestra de forma corta el commit, solo con el hashcommit y la descripcion
+```
+git log --oneline
+```
 
+buscamos la palabra en los commits realizados
+```
+git log -S "palabra"
+```
 
-git reflog                                          -> muestra toda la historia que se realizo en el repositorio (todos)
+## Show
 
+muestra los cambios que se hicieron en el archivo
+```
+git show <archivo>
+```
+
+## Diferencias
+muestra la comparativa entre los dos archivos (influye el orden de los commits)
+```
+git diff <commitA> <commitB>
+```
+muestra la comparativa pero de los cambios en staged
+```
+git diff --staged <commitA> <commitB>
+```
+
+## Reset
+
+elimina un archivo del stach
+```
+git reset <archivo>
+```
+
+revertir cambios
+```
+git reset <version>
+```
+
+revertir cambios sin imporatar que haga
+```
+git reset <version> --hard
+```
+
+revertir cambios pero los anteriores archivos agregados se mantienen
+```
+git reset <version> --soft
+```
+
+sacamos los archivos de memoria pero no se borran y se tienen que agregar de nuevo
+```
+git reset HEAD
+```
+
+movernos un commit antes de HEAD, para agregar cambios olvidados
+```
+git reset --soft HEAD^
+```
+
+hacer que la rama remota sea el nuevo HEAD quitando todos los cambios
+```
+git reset --hard origin/<rama>
+```
+
+saca todos los commits realizados posteriormente y los pone en el staged
+```
+git reset --mixed <hascommit>
+```
+
+revierte todos los cambios hasta ese hash commit
+```
+git reset --hard <hashcommit>
+```
+
+muestra toda la historia que se realizo en el repositorio - obsolutamente toda la historia
+```
+git reflog
+```
+
+## Checkout
 
 git checkout                                        -> traer cambios hechos por otra persona en una rama
 git checkout -- .                                   -> reconstruye todos los archivos segun el ultimo commit
@@ -183,7 +274,7 @@ git merge                                           -> fucionar las versiones qu
 git pull                                            -> traemos y actualizamos nuestros archivos
 git pull origin <rama> --allow-unrelated-histories  -> forzar a fucionar cambios del repositorio con nuestro local
 
-### branch
+## Branch
 
 git branch                                          -> muestra todas las ramas locales y la rama en la que estamos trabajando
 git branch -m <rama> <nombre>                       -> cambiar el nombre de una rama
@@ -195,14 +286,15 @@ git branch -a                                       -> nos muestra todas las ram
 git show-branch                                     -> muestra las ramas que existen y su historia
 git show-branch --all                               -> muestra toda la historia de la rama
 
+## Push
 
 git push                                            -> se manda el head al servidor remoto
 git push origin <nombre_rama>                       -> mandamos al repositorio remoto nuestra rama local
 git push origin --delete <nombre_rama>              -> eliminar ramas remotas
 
 
-Stash
-> guardar los cambios de forma temporal sin hacer push
+## Stash
+#### guardar los cambios de forma temporal sin hacer push
 
 git stash                                           -> agregar cambios a un entorno temporal
 git stash list                                      -> muestra los stash guardados temporalmente
@@ -215,16 +307,17 @@ gitk                                                -> interfas de git local
 .gitkeep                                            -> se crea este archivo para los direcctorios vacios y puedan ser tomados en cuenta por git
 
 
-* Merge *
-> cambiar a la rama master ya que es la rama principal antes de hacer un merge
+## Merge
+#### cambiar a la rama master ya que es la rama principal antes de hacer un merge
 
 git merge nombre_rama "mensaje"                     -> fucionamos las ramas y se debe agrega un mensaje
 
 
-* Conflictos *
-> se hace un merge y mostrara los errores de las lineas que son afectadas
-> se puede eliminar las lineas que generen el error de forma manual, posteriormente se debe realizar un commit
+## Conflictos
+> - se hace un merge y mostrara los errores de las lineas que son afectadas\
+> - se puede eliminar las lineas que generen el error de forma manual, posteriormente se debe realizar un commit
 
+## Remote
 
 Conectar con repositorio remoto
 git remote                                          -> lista el repositorio remoto al que apunta
@@ -234,12 +327,14 @@ git remote set-url origin url                       -> cambiar la url del reposi
 
 git remote add upstream url                         -> agregamos un repositorio nuevo de donde hacer pull y push
 
+## SSH
 
 Creacion de llaves SSH
 ssh-keygen -t rsa -b 4096 -C "correo_git"           -> crear una llave ssh en la carpeta .ssh/id_rsa
 eval $(ssh-agent -s)                                -> evaluando si rdts corriengo el agente de ssh y se ejecuta de manera correcta
 ssh-add ruta_llave_privada                          -> se agrega la llave privada al ssh
 
+## Tags
 
 Tags
 git tag -a name -m "mensaje" hash_commit            -> agregamos una etiqueta
@@ -250,32 +345,32 @@ git tag -d name_tag                                 -> eliminar una tag de forma
 git push origin :refs/tags/name_tag                 -> elimina la referencia del tag en el repositorio remoto
 
 
-Fork
-> se clona el proyecto como un fork y podemos modificar ya que es un clonado del mismo, para poder hacer cambios se debe hacer un pull request
-> funcionan de la misma manera que las ramas
-> siempre que se desee ver los cambios que hay se hacer un pull ya que los forks se quedan y no se actualizan solos
+## Fork
+> - se clona el proyecto como un fork y podemos modificar ya que es un clonado del mismo, para poder hacer cambios se debe hacer un pull request
+> - funcionan de la misma manera que las ramas
+> - siempre que se desee ver los cambios que hay se hacer un pull ya que los forks se quedan y no se actualizan solos
 
 
-Rebase
-> estando en la rama creada se ejecuta el comando rebase, primero se hace el rebase a la rama que se desaparecera de la historia
-> despues se le hace rebase a la rama principal
+## Rebase
+> - estando en la rama creada se ejecuta el comando rebase, primero se hace el rebase a la rama que se desaparecera de la historia
+> - despues se le hace rebase a la rama principal
 
 git rebase master                                   -> paga los cambios de otra rama a la rama indicada / reescribe la historia del repositorio
 
 
-Clean
-> no actua sobre archivo de -gitignore
-> no actual sobre directorios
+## Clean
+> - no actua sobre archivo de -gitignore
+> - no actual sobre directorios
 
 git clean --dry-run                                 -> mustra los archivo que se borraran
 git clean -f                                        -> se borraon lo archivo
 
 
-Cherry-pick
+## Cherry-pick
 git cherry-pick hash_commit                         -> traer un commit de una rama al master (cuando aun no se termina)
 
 
-Buscar
+## Hacer busquedas
 git grep "palabra"                                  -> buscamos la palabra en todo nuestro versionador
 git grep -n "palabra"                               -> buscamos y nos dice en que linea y archivo se encuentra la palabra
 git grep -c "palabra"                               -> saber cuantas veces uso la palabra en todo el repositorio
