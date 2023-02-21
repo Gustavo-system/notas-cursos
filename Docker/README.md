@@ -1,6 +1,8 @@
 # Docker
 
-## Modulo Uno - Comandos basicos
+## Modulo Uno - Instalación
+
+## Modulo Dos - Comandos basicos
 
 Obtener ayuda de un comando
 
@@ -68,9 +70,35 @@ docker ps
 ```
 
 Mostar todos los contenedores que esten corriendo o no esten corriendo
-
 ```
 docker container ls -a
+```
+
+Visualizar solo las ids de los contenedores
+```
+docker container ls -aq
+
+docker ps -aq
+```
+
+Comprobar el espacio utilizado por los contenedores creados
+```
+docker container ls -a -s
+
+docker ps -a -s
+```
+
+Ver los dos últimos contenedores lanzados
+```
+docker container ls -a -n <numero>
+
+docker ps -a -n <numero>
+```
+
+Si necesitamos buscar un contenedor por algun dato en concreto
+- \-f = lo usamos si necesitamos filtrar un contenedor por alguna palabra clave
+```
+docker ps -a -f name=<nombre>
 ```
 
 Correr un contenedor:
@@ -150,7 +178,7 @@ docker container logs --follow CONTAINER
 
 <br>
 
-## Modulo Dos - Persistencia de datos
+## Modulo Tres - Persistencia de datos
 
 ---
 
@@ -276,13 +304,32 @@ Conectar un contenedor a una red
 docker network connect <network-id> <container-id>
 ```
 
+---
+
+## Terminal interactiva
+
+---
+
+Iniciar una terminal interactiva dentro del contenedor
+```
+docker exec -it <container-id> <ruta-terminal>
+
+ejemplo:
+docker exec -it 111 /bin/sh
+```
+
+Salir de la terminal interactiva
+```
+exit
+```
 <br>
 
----
+## Modulo Cuatro - Multiples contenedores
+
+<br>
+<br>
 
 ## Glosario de Términos
-
----
 
 -   Docker
     -   Docker es una herramienta diseñada para facilitar la creación, la implementación y ejecucion de aplicaciones mediante el uso de contenedores.
