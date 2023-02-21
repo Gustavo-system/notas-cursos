@@ -1,46 +1,139 @@
-** GIT AND GITHUB **
+# GIT AND GITHUB
 
-Configurar git con usuario y correo
-> se requiere configurar para que el repositorio sepa quien esta haciendo los cambios
+saber la version de Git que se tiene 
+```
+git --version
+```
 
-git --version                                       -> saber la version de git que se tiene instalada
-git config                                          -> muestra toda la configuracion del entrono
-git config --list                                   -> muestra la configuracion por defecto
-git config --list --show-origin                     -> muestra la configuracion del respositorio guardadas
-git config --global -e                              -> muestra la configuracion global y se puede modificar las variables
-git config --global user.name <"name">              -> agrega un usuario
-git config --global user.email <"email">            -> agregar un correo al usuario o cambiar el email
-git config --global init.defaultBranch <name>       -> cambiar el nombre de la rama por default cuando se crea el repo "master -> main"
-git config --global alias.<tu_comando> <comando>    -> se crea un alias de los comandos, de forma personalizada
-git config --global alias.<tu_comando> <"comando">  -> si el comando tiene espacios se debe de poner entre comillas dobles el comando
-git config core.autocrlf true                       -> corregir warning de saltos de linea en windows
+---
+## Configurar entorno local
+---
+#### se requiere configurar para que el repositorio sepa quien esta haciendo los cambios
 
-* Comandos basicos *
+muestra toda la configuracion del entrono
+```
+git config
+```
+muestra la configuracion por defecto
+```
+git config --list
+```
+muestra la configuracion del respositorio 
+```
+git config --list --show-origin
+```
+muestra la configuracion global y se puede modificar las variables
+```
+git config --global -e
+```
+agrega un usuario
+```
+git config --global user.name <"name">
+```
+agregar un correo al usuario o cambiar el email
+```
+git config --global user.email <"email">
+```
+cambiar el nombre de la rama por default cuando se crea el repo "master -> main" desde la configuracion local
+```
+git config --global init.defaultBranch <name>
+```
+se crea un alias de los comandos, de forma personalizada
+```
+git config --global alias.<tu-comando> <comando>
+```
+si el comando tiene espacios se debe de poner entre comillas dobles el comando
+```
+git config --global alias.<tu-comando> <"comando">
+```
+corregir warning de saltos de linea en windows
+```
+git config core.autocrlf true
+```
 
-git init                                            -> inicia un repositorio
+---
 
+## Comandos
 
-git status                                          -> conocer el estatus de los archivo
-git status --short                                  -> muestra de forma breve el estado del archivo
+---
 
+inicia un repositorio, para que los archivos puedan tener un historial
+```
+git init
+```
 
-git add <archivo>                                   -> agregar un archivo al repositorio
-git add .                                           -> agregar todos los archivos modificados al respositorio
-git add <carpeta/>                                  -> agregar una carpeta con sus archivos
-git add <carpeta/archivo.extencion>                 -> agregar un archivo de cierta carpeta
+### Estatus
 
+conocer el estatus de los archivo, ya sean modificados o no
+- U = Sin seguimiento
+- M = Modificado
+- D = Eliminado
+- A = Agregado
 
-git rm <archivo>                                    -> remover un archivo del repositorio
-git rm --cached <archivo>                           -> remover un archivo de cache (vuelve al estado inicial fuera del status)
-git rm --cached -r <directorio>                     -> remover un directorio con archivos del respositorio local 
-git rm --force <archivo>                            -> elimina los archivos de git y del disco duro
+```
+git status
+```
 
+muestra de forma breve el estado del archivo
+```
+git status --short
+```
+
+### Agregar un archivo
+
+agregar un archivo al repositorio
+```
+git add <archivo>
+```
+
+agregar todos los archivos modificados al respositorio
+```
+git add .
+```
+
+agregar una carpeta con sus archivos
+```
+git add <carpeta>
+```
+
+agregar un archivo de cierta carpeta
+```
+git add <carpeta/archivo.extencion>
+```
+
+### Eliminar un archivo
+
+remover un archivo del repositorio
+```
+git rm <archivo>
+```
+
+remover un archivo de cache
+- \--cached = vuelve al estado inicial fuera del status
+```
+git rm --cached <archivo>
+```
+
+remover un directorio con archivos dentro, solo del respositorio local
+- \-r = recursiva
+```
+git rm --cached -r <directorio>
+```
+
+elimina los archivos de git y del disco duro
+- \--force = de forma forsada
+```
+git rm --force <archivo>
+```
+
+### Commit
 
 git commit -m <"mensaje">                           -> agregar un comentario de los cambios realizados
 git commit -am <"mensaje">                          -> hace el commit y el add de los cambios (solo si ya estan agregados los archivos previamente)
 git commit --amend                                  -> se cambia el comentario del commit anterior abriendo un editor
 git commit --amend -m <"mensaje">                   -> se cambia el comentario sin abrir el editor
 
+### log
 
 git log                                             -> ver historia del repositorio
 git log <archivo>                                   -> muestra toda la historia del archivo
@@ -58,6 +151,7 @@ git show <archivo>                                  -> muestra los cambios que s
 git diff <commitA> <commitB>                        -> muestra la comparativa entre los dos archivos (influye el orden de los commits)
 git diff --staged <commitA> <commitB>               -> muestra la comparativa pero de los cambios en staged
 
+### reset
 
 git reset <archivo>                                 -> elimina un archivo del stach
 git reset <version>                                 -> revertir cambios
@@ -89,6 +183,7 @@ git merge                                           -> fucionar las versiones qu
 git pull                                            -> traemos y actualizamos nuestros archivos
 git pull origin <rama> --allow-unrelated-histories  -> forzar a fucionar cambios del repositorio con nuestro local
 
+### branch
 
 git branch                                          -> muestra todas las ramas locales y la rama en la que estamos trabajando
 git branch -m <rama> <nombre>                       -> cambiar el nombre de una rama
