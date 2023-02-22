@@ -70,11 +70,13 @@ docker ps
 ```
 
 Mostar todos los contenedores que esten corriendo o no esten corriendo
+
 ```
 docker container ls -a
 ```
 
 Visualizar solo las ids de los contenedores
+
 ```
 docker container ls -aq
 
@@ -82,6 +84,7 @@ docker ps -aq
 ```
 
 Comprobar el espacio utilizado por los contenedores creados
+
 ```
 docker container ls -a -s
 
@@ -89,6 +92,7 @@ docker ps -a -s
 ```
 
 Ver los dos últimos contenedores lanzados
+
 ```
 docker container ls -a -n <numero>
 
@@ -96,7 +100,9 @@ docker ps -a -n <numero>
 ```
 
 Si necesitamos buscar un contenedor por algun dato en concreto
-- \-f = lo usamos si necesitamos filtrar un contenedor por alguna palabra clave
+
+-   \-f = lo usamos si necesitamos filtrar un contenedor por alguna palabra clave
+
 ```
 docker ps -a -f name=<nombre>
 ```
@@ -311,6 +317,7 @@ docker network connect <network-id> <container-id>
 ---
 
 Iniciar una terminal interactiva dentro del contenedor
+
 ```
 docker exec -it <container-id> <ruta-terminal>
 
@@ -319,9 +326,11 @@ docker exec -it 111 /bin/sh
 ```
 
 Salir de la terminal interactiva
+
 ```
 exit
 ```
+
 <br>
 
 [Repaso de lo aprendido :)](https://gist.github.com/Klerith/8cfc637868212cfb888333ecaa6080e1)
@@ -329,8 +338,8 @@ exit
 <br>
 
 ## Modulo Cuatro - Docker Compose
-> Multipes contenedores
 
+> Multipes contenedores
 
 <br>
 <br>
