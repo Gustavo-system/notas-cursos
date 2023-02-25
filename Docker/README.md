@@ -70,13 +70,11 @@ docker ps
 ```
 
 Mostar todos los contenedores que esten corriendo o no esten corriendo
-
 ```
 docker container ls -a
 ```
 
 Visualizar solo las ids de los contenedores
-
 ```
 docker container ls -aq
 
@@ -84,7 +82,6 @@ docker ps -aq
 ```
 
 Comprobar el espacio utilizado por los contenedores creados
-
 ```
 docker container ls -a -s
 
@@ -92,7 +89,6 @@ docker ps -a -s
 ```
 
 Ver los dos últimos contenedores lanzados
-
 ```
 docker container ls -a -n <numero>
 
@@ -100,9 +96,7 @@ docker ps -a -n <numero>
 ```
 
 Si necesitamos buscar un contenedor por algun dato en concreto
-
--   \-f = lo usamos si necesitamos filtrar un contenedor por alguna palabra clave
-
+- \-f = lo usamos si necesitamos filtrar un contenedor por alguna palabra clave
 ```
 docker ps -a -f name=<nombre>
 ```
@@ -317,7 +311,6 @@ docker network connect <network-id> <container-id>
 ---
 
 Iniciar una terminal interactiva dentro del contenedor
-
 ```
 docker exec -it <container-id> <ruta-terminal>
 
@@ -326,11 +319,9 @@ docker exec -it 111 /bin/sh
 ```
 
 Salir de la terminal interactiva
-
 ```
 exit
 ```
-
 <br>
 
 [Repaso de lo aprendido :)](https://gist.github.com/Klerith/8cfc637868212cfb888333ecaa6080e1)
@@ -338,8 +329,59 @@ exit
 <br>
 
 ## Modulo Cuatro - Docker Compose
-
 > Multipes contenedores
+
+Ejecutamos la configuracion creada en el docker-compose
+```
+docker compose up
+```
+
+En caso de que no se cree de forma correcta todo lo del docker-compose se puede hacer una limpieza
+```
+docker compose down
+```
+
+- Todos los contenedores creados en el docker-compose se agregan a la misma red aunque no se especifique
+
+Ejemplo de docker-compose
+```
+version: "3"
+
+services:
+  # nombre del servicio
+  db:
+    # nombre del contenedor
+    container_name: posgrest_db
+    # definimos la imagenes que se usara
+    image: postgres:15.1
+    # definimos el volumen que usara este contenedor
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+    # se declaran las variables de entrono
+    environment:
+      - POSTGRES_PASSWORD=123456
+
+  pgAdmin:
+    # depende de otro servicio, importa el orden de como se estrucutura el yml
+    depends_on:
+      - db
+    container_name: pgAdmin
+    image: dpage/pgadmin4:6.17
+    environment:
+      - PGADMIN_DEFAULT_PASSWORD=123456
+      - PGADMIN_DEFAULT_EMAIL=superman@google.com
+    # se definen los puertos que se usaran
+    ports:
+      # puerto maquina : puerto contenedor
+      - "8080:80"
+
+# se requiere deifinir el volumen que se usara en el contenedor, para saber si es uno existente o uno nuevo. En este caso es externo
+volumes:
+  postgres-db:
+    # define que se use un volumen externo
+    external: true
+```
+
 
 <br>
 <br>
